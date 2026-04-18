@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Yadav - Architect & Computational Designer</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: #0E0E0E;
+            color: #E8E5DE;
+        }
+
+        .app {
+            background: #0E0E0E;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(14, 14, 14, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s;
+        }
+
+        nav .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 48px;
+        }
+
+        nav .nav-logo {
+            font-family: Georgia, serif;
+            font-size: 15px;
+            color: #E8E5DE;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        nav .nav-logo:hover {
+            opacity: 0.7;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav .nav-link {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #E8E5DE;
+            opacity: 0.4;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-decoration: none;
+        }
+
+        nav .nav-link:hover {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            padding-top: 60px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 0 48px 64px;
+        }
+
+        .hero-label {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #E8E5DE;
+            opacity: 0.4;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            line-height: 1.1;
+            color: #E8E5DE;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            font-style: italic;
+            color: #E8E5DE;
+            opacity: 0.45;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #E8E5DE;
+            opacity: 0.4;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Common Section Styles */
+        section {
+            padding: 120px 48px;
+        }
+
+        .section-label {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #E8E5DE;
+            opacity: 0.4;
+            margin-bottom: 48px;
+        }
+
+        /* Selected Work */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            border-left: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .work-item {
+            padding: 32px 24px;
+            border-right: 0.5px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .work-item:hover {
+            opacity: 0.6;
+        }
+
+        .work-number {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #E8E5DE;
+            opacity: 0.4;
+            margin-bottom: 12px;
+        }
+
+        .work-title {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            color: #E8E5DE;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .work-type {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #E8E5DE;
+            opacity: 0.4;
+            letter-spacing: 0.06em;
+        }
+
+        .view-all {
+            text-align: right;
+            margin-top: 32px;
+        }
+
+        .view-all button {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #E8E5DE;
+            opacity: 0.4;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .view-all button:hover {
+            opacity: 0.7;
+        }
+
+        /* Work List Table */
+        .work-table {
+            overflow-x: auto;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 60px 1fr 200px 80px;
+            gap: 16px;
+            padding-bottom: 16px;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.14);
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #E8E5DE;
+            opacity: 0.4;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 200px 80px;
+            gap: 16px;
+            padding: 24px 0;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .table-row:hover {
+            opacity: 0.6;
+        }
+
+        .table-cell {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #E8E5DE;
+            opacity: 0.4;
+        }
+
+        .table-cell.project-name {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            opacity: 1;
+        }
+
+        /* Process Section */
+        .process-intro {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-style: italic;
+            color: #E8E5DE;
+            opacity: 0.45;
+            max-width: 520px;
+            margin-bottom: 64px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            border-left: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .process-step {
+            padding: 32px 24px;
+            border-right: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .process-step h3 {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            color: #E8E5DE;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .process-step p {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #E8E5DE;
+            opacity: 0.45;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1A1A1A;
+            aspect-ratio: 4/3;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #E8E5DE;
+            opacity: 0.4;
+            letter-spacing: 0.05em;
+        }
+
+        /* The Door Section */
+        .door-section {
+            padding: 160px 48px;
+            text-align: center;
+        }
+
+        .door-rule {
+            width: 100%;
+            height: 0.5px;
+            background: rgba(255, 255, 255, 0.08);
+            margin-bottom: 80px;
+        }
+
+        .door-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .door-title {
+            font-family: Georgia, serif;
+            font-size: 40px;
+            line-height: 1.2;
+            color: #E8E5DE;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .door-subtitle {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-style: italic;
+            color: #E8E5DE;
+            opacity: 0.45;
+            margin-bottom: 48px;
+        }
+
+        .door-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .door-buttons button {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            color: #E8E5DE;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .door-buttons button:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        .door-buttons button.secondary {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            opacity: 0.4;
+        }
+
+        /* Studio Timeline */
+        .studio-entry {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .studio-entry:last-child {
+            border-bottom: none;
+        }
+
+        .studio-name {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            color: #E8E5DE;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .studio-years {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #E8E5DE;
+            opacity: 0.4;
+        }
+
+        .studio-description {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            font-style: italic;
+            color: #E8E5DE;
+            opacity: 0.45;
+            margin-bottom: 24px;
+        }
+
+        .studio-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 64px;
+        }
+
+        .about-text p {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            line-height: 1.9;
+            color: #E8E5DE;
+            opacity: 0.85;
+            margin-bottom: 24px;
+        }
+
+        .about-text p.closing {
+            font-style: italic;
+            opacity: 0.6;
+            margin-top: 32px;
+        }
+
+        .about-info-item {
+            margin-bottom: 40px;
+        }
+
+        .about-info-label {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #E8E5DE;
+            opacity: 0.4;
+            margin-bottom: 12px;
+        }
+
+        .about-info-text {
+            font-family: Georgia, serif;
+            font-size: 15px;
+            color: #E8E5DE;
+            line-height: 1.6;
+        }
+
+        .tool-category {
+            margin-bottom: 12px;
+        }
+
+        .tool-label {
+            font-style: italic;
+            opacity: 0.5;
+            font-size: 12px;
+        }
+
+        /* Videos Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .video-item {
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .video-item:hover {
+            opacity: 0.7;
+        }
+
+        .video-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1A1A1A;
+            aspect-ratio: 16/9;
+            margin-bottom: 12px;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 12px solid rgba(255, 255, 255, 0.6);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            margin-left: 4px;
+        }
+
+        .video-title {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #E8E5DE;
+            opacity: 0.45;
+        }
+
+        .video-note {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #E8E5DE;
+            opacity: 0.4;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact-email {
+            font-family: Georgia, serif;
+            font-size: 44px;
+            color: #E8E5DE;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            display: block;
+            margin-bottom: 64px;
+        }
+
+        .contact-email:hover {
+            opacity: 0.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            padding-top: 48px;
+            border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-text {
+            text-align: center;
+            padding-top: 80px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #E8E5DE;
+            opacity: 0.4;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav .nav-container {
+                padding: 16px 24px;
+            }
+
+            section {
+                padding: 80px 24px;
+            }
+
+            .hero-content {
+                padding: 0 24px 48px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .work-grid,
+            .process-grid,
+            .studio-images,
+            .about-grid,
+            .video-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .studio-entry {
+                grid-template-columns: 1fr;
+            }
+
+            .door-title {
+                font-size: 28px;
+            }
+
+            .contact-email {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="nav-logo">Ajay Yadav</a>
+                <div class="nav-links">
+                    <a href="#work" class="nav-link">Work</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Section 01 - Hero -->
+        <section class="hero-section">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-label">Ajay Yadav</p>
+                <h1 class="hero-title">
+                    Architect.<br>
+                    Computational designer.
+                </h1>
+                <p class="hero-subtitle">Ideas that finish as objects.</p>
+            </div>
+            <div class="scroll-indicator">scroll</div>
+        </section>
+
+        <!-- Section 02 - Selected Work -->
+        <section>
+            <p class="section-label">Selected Work</p>
+            <div class="work-grid">
+                <div class="work-item">
+                    <p class="work-number">01</p>
+                    <h3 class="work-title">LINE rocking chair</h3>
+                    <p class="work-type">Parametric · Fabricated</p>
+                </div>
+                <div class="work-item">
+                    <p class="work-number">02</p>
+                    <h3 class="work-title">KOMFORT1 lounger</h3>
+                    <p class="work-type">Fabricated · Built</p>
+                </div>
+                <div class="work-item">
+                    <p class="work-number">03</p>
+                    <h3 class="work-title">LAITLUM wall art</h3>
+                    <p class="work-type">Data · CNC · Installed</p>
+                </div>
+            </div>
+            <div class="view-all">
+                <button onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View all work ↓</button>
+            </div>
+        </section>
+
+        <!-- Section 03 - Full Work List -->
+        <section id="work">
+            <p class="section-label">Work</p>
+            <div class="work-table">
+                <div class="table-header">
+                    <div></div>
+                    <div>Project</div>
+                    <div>Type</div>
+                    <div>Year</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">01</div>
+                    <div class="table-cell project-name">LINE rocking chair</div>
+                    <div class="table-cell">Parametric · Fabricated</div>
+                    <div class="table-cell">2024</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">02</div>
+                    <div class="table-cell project-name">KOMFORT1 lounger</div>
+                    <div class="table-cell">Fabricated · Built</div>
+                    <div class="table-cell">2024</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">03</div>
+                    <div class="table-cell project-name">LAITLUM wall art</div>
+                    <div class="table-cell">Data · CNC · Installed</div>
+                    <div class="table-cell">2023</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">04</div>
+                    <div class="table-cell project-name">Mortar House</div>
+                    <div class="table-cell">Interior · Built</div>
+                    <div class="table-cell">2024</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">05</div>
+                    <div class="table-cell project-name">UNIT1 welcome console</div>
+                    <div class="table-cell">Parametric · Fabricated</div>
+                    <div class="table-cell">2023</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">06</div>
+                    <div class="table-cell project-name">Museum of Architecture</div>
+                    <div class="table-cell">Computational · Academic</div>
+                    <div class="table-cell">2021</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">07</div>
+                    <div class="table-cell project-name">The Edge</div>
+                    <div class="table-cell">Architecture · Housing</div>
+                    <div class="table-cell">2024</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">08</div>
+                    <div class="table-cell project-name">Forest Floors</div>
+                    <div class="table-cell">Architecture · Housing</div>
+                    <div class="table-cell">2025</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 04 - Process -->
+        <section>
+            <p class="section-label">Process</p>
+            <p class="process-intro">Every project starts as a rule set. The geometry follows from the logic. The object follows from the geometry.</p>
+            <div class="process-grid">
+                <div class="process-step">
+                    <p class="work-number">01</p>
+                    <h3>Define the logic</h3>
+                    <p>The problem becomes a Grasshopper definition — parameters, relationships, constraints. The model is the drawing.</p>
+                    <div class="image-placeholder">gh-canvas.jpg</div>
+                </div>
+                <div class="process-step">
+                    <p class="work-number">02</p>
+                    <h3>Test through geometry</h3>
+                    <p>The definition runs, varies, breaks. Bad results are information. Form comes from the system, not from the sketch.</p>
+                    <div class="image-placeholder">gh-iterations.jpg</div>
+                </div>
+                <div class="process-step">
+                    <p class="work-number">03</p>
+                    <h3>Close the gap</h3>
+                    <p>CNC toolpaths from the model. Shop drawings generated, not drawn. Screen to material — no translation loss.</p>
+                    <div class="image-placeholder">fabrication.jpg</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 05 - The Door -->
+        <section class="door-section">
+            <div class="door-rule"></div>
+            <div class="door-content">
+                <p class="hero-label">You've seen the work</p>
+                <h2 class="door-title">There's more to the story.</h2>
+                <p class="door-subtitle">Studios built. Things made. Ideas written down.</p>
+                <div class="door-buttons">
+                    <button onclick="document.getElementById('layer-2').scrollIntoView({behavior: 'smooth'})">Continue ↓</button>
+                    <button class="secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Skip to contact →</button>
+                </div>
+            </div>
+            <div class="door-rule" style="margin-top: 80px; margin-bottom: 0;"></div>
+        </section>
+
+        <!-- Section 06 - Layer 2 Begins -->
+        <section id="layer-2">
+            <p class="section-label">The Full Picture</p>
+            <p class="process-intro">Before the job titles. A studio, a startup, a creative practice — sometimes all three at once.</p>
+        </section>
+
+        <!-- Section 07 - Studio Timeline -->
+        <section style="padding-top: 0;">
+            <div class="studio-entry">
+                <div>
+                    <h3 class="studio-name">7day3io</h3>
+                    <p class="studio-years">2019 – 2022</p>
+                </div>
+                <div>
+                    <p class="studio-description">Freelance computational design studio with two batchmates. 100+ projects — product visualisation, residential design, event fabrication, UAE clients.</p>
+                    <div class="studio-images">
+                        <div class="image-placeholder">7day3io-01.jpg</div>
+                        <div class="image-placeholder">7day3io-02.jpg</div>
+                        <div class="image-placeholder">7day3io-03.jpg</div>
+                    </div>
+                </div>
+            </div>
+            <div class="studio-entry">
+                <div>
+                    <h3 class="studio-name">Grull.Work</h3>
+                    <p class="studio-years">2022 – 2024</p>
+                </div>
+                <div>
+                    <p class="studio-description">Creative execution studio. CGI video, 3D animation, and VFX production for large brands and agencies.</p>
+                    <div class="studio-images">
+                        <div class="image-placeholder">grull-work-01.jpg</div>
+                        <div class="image-placeholder">grull-work-02.jpg</div>
+                        <div class="image-placeholder">grull-work-03.jpg</div>
+                    </div>
+                </div>
+            </div>
+            <div class="studio-entry">
+                <div>
+                    <h3 class="studio-name">Grull.Design</h3>
+                    <p class="studio-years">2024</p>
+                </div>
+                <div>
+                    <p class="studio-description">CGI and design direction. Computational design meets creative production.</p>
+                    <div class="studio-images">
+                        <div class="image-placeholder">grull-design-01.jpg</div>
+                        <div class="image-placeholder">grull-design-02.jpg</div>
+                        <div class="image-placeholder">grull-design-03.jpg</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 08 - About -->
+        <section id="about">
+            <p class="section-label">About</p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I grew up in Lucknow and studied architecture at NIT Hamirpur — five years of building things, breaking definitions, and learning that the distance between an idea and a built object is almost always shorter than people think.</p>
+                    <p>During college I ran a freelance studio with two batchmates. We called it 7day3io. It lasted three years and produced more than a hundred projects. I learned how to work fast, talk to clients, and deliver things that got built.</p>
+                    <p>After graduating I tried building something from scratch — a creative studio, a marketplace, a CGI practice. Some of it worked. All of it taught me something. The thread through all of it was the same: I want to understand how something works, then make it.</p>
+                    <p>Right now I'm a computational designer at a facade practice in Delhi. The work is technical and I like it. But I'm building toward something more: a practice in Europe or the UAE where computation is a design position, not a production step.</p>
+                    <p class="closing">Outside the work I read widely — philosophy, evolutionary psychology, the long history of how humans became what we are. It shapes how I see problems. I don't separate the thinking from the making.</p>
+                </div>
+                <div>
+                    <div class="about-info-item">
+                        <p class="about-info-label">Education</p>
+                        <div class="about-info-text">
+                            B.Arch — NIT Hamirpur<br>
+                            2018 – 2023
+                        </div>
+                    </div>
+                    <div class="about-info-item">
+                        <p class="about-info-label">Currently</p>
+                        <div class="about-info-text">
+                            Computational Designer<br>
+                            Facade practice, New Delhi<br>
+                            Dec 2025 – present
+                        </div>
+                    </div>
+                    <div class="about-info-item">
+                        <p class="about-info-label">Tools</p>
+                        <div class="about-info-text" style="font-size: 14px; line-height: 1.8;">
+                            <div class="tool-category">
+                                <span class="tool-label">Computational:</span><br>
+                                Rhinoceros 3D · Grasshopper · GHPython<br>
+                                Lunchbox · Kangaroo · Weaverbird
+                            </div>
+                            <div class="tool-category">
+                                <span class="tool-label">Fabrication:</span><br>
+                                BSolid CNC · V-Ray · Revit · Lumion
+                            </div>
+                            <div class="tool-category">
+                                <span class="tool-label">Visual:</span><br>
+                                Photoshop · InDesign · Premiere Pro
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#" class="nav-link" style="font-family: Georgia, serif; font-size: 15px; opacity: 1;">→ Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 09 - Videos -->
+        <section>
+            <p class="section-label">Writing & Video</p>
+            <p class="process-intro" style="margin-bottom: 48px;">Architecture, ideas, and the spaces between things.</p>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <p class="video-title">Architecture and time</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <p class="video-title">Material systems</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <p class="video-title">The design process</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <p class="video-title">Computational thinking</p>
+                </div>
+            </div>
+            <p class="video-note">Videos from Instagram / YouTube. I will replace these with embed links.</p>
+        </section>
+
+        <!-- Section 10 - Contact -->
+        <section id="contact">
+            <div class="door-rule" style="margin-bottom: 48px;"></div>
+            <p class="section-label">Get in Touch</p>
+            <a href="mailto:hello@ajay.design" class="contact-email">hello@ajay.design</a>
+            <div class="contact-grid">
+                <div>
+                    <p class="about-info-label">Location</p>
+                    <div class="about-info-text">New Delhi, India</div>
+                </div>
+                <div>
+                    <p class="about-info-label">Open To</p>
+                    <div class="about-info-text">
+                        Netherlands · Germany · UAE<br>
+                        Full-time · from mid-2027
+                    </div>
+                </div>
+                <div>
+                    <p class="about-info-label">Elsewhere</p>
+                    <div class="about-info-text">
+                        <a href="#" class="nav-link" style="color: #E8E5DE; opacity: 1; text-transform: none; letter-spacing: 0;">LinkedIn</a><br>
+                        Portfolio PDF on request
+                    </div>
+                </div>
+            </div>
+            <div class="footer-text">ajay.design</div>
+        </section>
+    </div>
+</body>
+</html>
