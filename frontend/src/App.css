@@ -12,3 +12,138 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* Custom Cursor */
+@media (min-width: 768px) {
+    body {
+        cursor: none;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        cursor: auto;
+    }
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border: 1px solid rgba(232, 229, 222, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hovering {
+    width: 32px;
+    height: 32px;
+    border-color: rgba(232, 229, 222, 0.3);
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.04);
+    z-index: 40;
+    pointer-events: none;
+}
+
+.scroll-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    background: rgba(232, 229, 222, 0.3);
+    transition: height 0.1s ease-out;
+}
+
+/* Reveal Animation System */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section labels - special reveal */
+.reveal.section-label-reveal {
+    transform: translateY(0);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.section-label-reveal.visible {
+    opacity: 1;
+}
+
+/* Hero text reveals - on load, not scroll */
+.hero-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-reveal-1 {
+    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.hero-reveal-2 {
+    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.hero-reveal-3 {
+    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+}
+
+.hero-reveal-4 {
+    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+}
+
+@keyframes heroReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact email special reveal */
+.contact-email-reveal {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-email-reveal.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Layer 2 background shift */
+body.layer-two-active {
+    background-color: #121208;
+    transition: background-color 2s ease;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .reveal {
+        transform: translateY(10px);
+        transition-duration: 0.56s;
+    }
+    
+    .reveal.visible {
+        transform: translateY(0);
+    }
+}

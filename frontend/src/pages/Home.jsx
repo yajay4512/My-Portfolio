@@ -1,9 +1,66 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { projects, studios, processSteps, videos } from '../mock';
 
 const Home = () => {
   const navigate = useNavigate();
+  const observerRef = useRef(null);
+
+  useEffect(() => {
+    // Setup Intersection Observer for scroll reveals
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Get stagger delay from data attribute
+            const delay = entry.target.dataset.staggerDelay || 0;
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, parseFloat(delay) * 1000);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
+      }
+    );
+
+    // Observe all reveal elements
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => {
+      if (observerRef.current) {
+        observerRef.current.observe(el);
+      }
+    });
+
+    // Layer 2 background shift observer
+    const layer2Observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            document.body.classList.add('layer-two-active');
+          }
+        });
+      },
+      {
+        threshold: 0.5
+      }
+    );
+
+    const layer2Element = document.getElementById('layer-2');
+    if (layer2Element) {
+      layer2Observer.observe(layer2Element);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      layer2Observer.disconnect();
+      document.body.classList.remove('layer-two-active');
+    };
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -12,9 +69,9 @@ const Home = () => {
     }
   };
 
-  const ImagePlaceholder = ({ filename, aspectRatio = '16/9' }) => (
+  const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => (
     <div
-      className="flex items-center justify-center"
+      className={`flex items-center justify-center ${className}`}
       style={{
         background: '#1A1A1A',
         aspectRatio: aspectRatio,
@@ -79,6 +136,7 @@ const Home = () => {
           style={{ zIndex: 3 }}
         >
           <p
+            className="hero-reveal hero-reveal-1"
             style={{
               fontFamily: 'Arial, sans-serif',
               fontSize: '13px',
@@ -101,10 +159,11 @@ const Home = () => {
               marginBottom: '20px'
             }}
           >
-            Architect.<br />
-            Computational designer.
+            <span className="hero-reveal hero-reveal-2" style={{ display: 'block' }}>Architect.</span>
+            <span className="hero-reveal hero-reveal-3" style={{ display: 'block' }}>Computational designer.</span>
           </h1>
           <p
+            className="hero-reveal hero-reveal-4"
             style={{
               fontFamily: 'Georgia, serif',
               fontSize: '20px',
@@ -135,6 +194,7 @@ const Home = () => {
       {/* SECTION 02 - SELECTED WORK */}
       <section className="px-8 md:px-16 py-24 md:py-32">
         <p
+          className="reveal section-label-reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '10px',
@@ -148,12 +208,13 @@ const Home = () => {
           Selected Work
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ borderLeft: '0.5px solid rgba(255, 255, 255, 0.08)' }}>
-          {projects.slice(0, 3).map((project) => (
+          {projects.slice(0, 3).map((project, index) => (
             <div
               key={project.id}
               onClick={() => navigate(`/project/${project.id}`)}
-              className="cursor-pointer transition-opacity duration-200 hover:opacity-60 px-6 py-8"
+              className="cursor-pointer cursor-hover transition-opacity duration-200 hover:opacity-60 px-6 py-8 reveal"
               style={{ borderRight: '0.5px solid rgba(255, 255, 255, 0.08)' }}
+              data-stagger-delay={index * 0.1}
             >
               <p
                 style={{
@@ -191,10 +252,10 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-end mt-8">
+        <div className="flex justify-end mt-8 reveal" data-stagger-delay="0.3">
           <button
             onClick={() => scrollToSection('work')}
-            className="transition-opacity duration-200 hover:opacity-70"
+            className="transition-opacity duration-200 hover:opacity-70 cursor-hover"
             style={{
               fontFamily: 'Arial, sans-serif',
               fontSize: '11px',
@@ -213,6 +274,7 @@ const Home = () => {
       {/* SECTION 03 - FULL WORK LIST */}
       <section id="work" className="px-8 md:px-16 py-24 md:py-32">
         <p
+          className="reveal section-label-reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '10px',
@@ -227,7 +289,7 @@ const Home = () => {
         </p>
         <div className="overflow-x-auto">
           <div
-            className="grid gap-0 pb-4"
+            className="grid gap-0 pb-4 reveal"
             style={{
               gridTemplateColumns: '60px 1fr 200px 80px',
               minWidth: '600px',
@@ -239,16 +301,17 @@ const Home = () => {
             <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '10px', textTransform: 'uppercase', color: '#E8E5DE', opacity: 0.4 }}>Type</div>
             <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '10px', textTransform: 'uppercase', color: '#E8E5DE', opacity: 0.4 }}>Year</div>
           </div>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.id}
               onClick={() => navigate(`/project/${project.id}`)}
-              className="grid gap-0 py-6 cursor-pointer transition-opacity duration-200 hover:opacity-60"
+              className="grid gap-0 py-6 cursor-pointer cursor-hover transition-opacity duration-200 hover:opacity-60 reveal"
               style={{
                 gridTemplateColumns: '60px 1fr 200px 80px',
                 minWidth: '600px',
                 borderBottom: '0.5px solid rgba(255, 255, 255, 0.06)'
               }}
+              data-stagger-delay={index * 0.08}
             >
               <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E5DE', opacity: 0.4 }}>{project.number}</div>
               <div style={{ fontFamily: 'Georgia, serif', fontSize: '16px', color: '#E8E5DE' }}>{project.name}</div>
@@ -262,6 +325,7 @@ const Home = () => {
       {/* SECTION 04 - PROCESS */}
       <section className="px-8 md:px-16 py-24 md:py-32">
         <p
+          className="reveal section-label-reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '10px',
@@ -275,6 +339,7 @@ const Home = () => {
           Process
         </p>
         <p
+          className="reveal"
           style={{
             fontFamily: 'Georgia, serif',
             fontSize: '18px',
@@ -284,12 +349,13 @@ const Home = () => {
             maxWidth: '520px',
             marginBottom: '64px'
           }}
+          data-stagger-delay="0.1"
         >
           Every project starts as a rule set. The geometry follows from the logic. The object follows from the geometry.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ borderLeft: '0.5px solid rgba(255, 255, 255, 0.08)' }}>
-          {processSteps.map((step) => (
-            <div key={step.number} className="px-6 py-8" style={{ borderRight: '0.5px solid rgba(255, 255, 255, 0.08)' }}>
+          {processSteps.map((step, index) => (
+            <div key={step.number} className="px-6 py-8 reveal" style={{ borderRight: '0.5px solid rgba(255, 255, 255, 0.08)' }} data-stagger-delay={index * 0.15}>
               <p
                 style={{
                   fontFamily: 'Arial, sans-serif',
@@ -330,88 +396,46 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 05 - THE DOOR */}
-      <section className="px-8 md:px-16 py-32 md:py-40">
-        <div style={{ width: '100%', height: '0.5px', background: 'rgba(255, 255, 255, 0.08)', marginBottom: '80px' }} />
-        <div className="text-center max-w-2xl mx-auto">
+      {/* SECTION 05 - THE PAUSE (Replacing "The Door") */}
+      <section className="px-8 md:px-16" style={{ padding: '200px 48px' }}>
+        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
           <p
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: '10px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.2em',
-              color: '#E8E5DE',
-              opacity: 0.4,
-              marginBottom: '32px'
-            }}
-          >
-            You've seen the work
-          </p>
-          <h2
+            className="reveal"
             style={{
               fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(28px, 5vw, 40px)',
-              lineHeight: 1.2,
+              fontSize: '32px',
+              fontWeight: 400,
               color: '#E8E5DE',
-              marginBottom: '24px',
-              fontWeight: 400
+              opacity: 0.35,
+              marginBottom: '16px',
+              transform: 'translateY(0)',
+              transition: 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
           >
-            There's more to the story.
-          </h2>
+            This is the work.
+          </p>
           <p
+            className="reveal"
             style={{
               fontFamily: 'Georgia, serif',
-              fontSize: '18px',
-              fontStyle: 'italic',
+              fontSize: '32px',
+              fontWeight: 400,
               color: '#E8E5DE',
-              opacity: 0.45,
-              marginBottom: '48px'
+              opacity: 1,
+              transform: 'translateY(0)',
+              transition: 'opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
+            data-stagger-delay="0.6"
           >
-            Studios built. Things made. Ideas written down.
+            But work is never the whole story.
           </p>
-          <div className="flex items-center justify-center gap-8">
-            <button
-              onClick={() => scrollToSection('layer-2')}
-              className="transition-opacity duration-200 hover:opacity-70"
-              style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: '16px',
-                color: '#E8E5DE',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                textDecoration: 'none'
-              }}
-              onMouseEnter={(e) => e.target.style.textDecoration = 'underline'}
-              onMouseLeave={(e) => e.target.style.textDecoration = 'none'}
-            >
-              Continue ↓
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="transition-opacity duration-200 hover:opacity-70"
-              style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '13px',
-                color: '#E8E5DE',
-                opacity: 0.4,
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer'
-              }}
-            >
-              Skip to contact →
-            </button>
-          </div>
         </div>
-        <div style={{ width: '100%', height: '0.5px', background: 'rgba(255, 255, 255, 0.08)', marginTop: '80px' }} />
       </section>
 
       {/* SECTION 06 - LAYER 2 BEGINS */}
       <section id="layer-2" className="px-8 md:px-16 py-24 md:py-32">
         <p
+          className="reveal section-label-reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '10px',
@@ -425,6 +449,7 @@ const Home = () => {
           The Full Picture
         </p>
         <p
+          className="reveal"
           style={{
             fontFamily: 'Georgia, serif',
             fontSize: '20px',
@@ -433,6 +458,7 @@ const Home = () => {
             opacity: 0.45,
             maxWidth: '560px'
           }}
+          data-stagger-delay="0.1"
         >
           Before the job titles. A studio, a startup, a creative practice — sometimes all three at once.
         </p>
@@ -442,16 +468,17 @@ const Home = () => {
       <section className="px-8 md:px-16 py-12">
         <div className="space-y-16">
           {studios.map((studio, index) => (
-            <div key={index}>
+            <div key={index} className="reveal" data-stagger-delay={index * 0.2}>
               <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 mb-8">
                 <div>
                   <h3
                     style={{
                       fontFamily: 'Georgia, serif',
-                      fontSize: '28px',
+                      fontSize: '36px',
                       color: '#E8E5DE',
                       marginBottom: '8px',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      letterSpacing: '-0.02em'
                     }}
                   >
                     {studio.name}
@@ -482,7 +509,7 @@ const Home = () => {
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                     {studio.images.map((image, imgIndex) => (
-                      <ImagePlaceholder key={imgIndex} filename={image} aspectRatio="16/9" />
+                      <ImagePlaceholder key={imgIndex} filename={image} aspectRatio="16/9" className="reveal" data-stagger-delay={(imgIndex + 1) * 0.1} />
                     ))}
                   </div>
                 </div>
@@ -498,6 +525,7 @@ const Home = () => {
       {/* SECTION 08 - ABOUT */}
       <section id="about" className="px-8 md:px-16 py-24 md:py-32">
         <p
+          className="reveal section-label-reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '10px',
@@ -521,31 +549,33 @@ const Home = () => {
                 opacity: 0.85
               }}
             >
-              <p style={{ marginBottom: '24px' }}>
+              <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0">
                 I grew up in Lucknow and studied architecture at NIT Hamirpur — five years of building things, breaking definitions, and learning that the distance between an idea and a built object is almost always shorter than people think.
               </p>
-              <p style={{ marginBottom: '24px' }}>
+              <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.15">
                 During college I ran a freelance studio with two batchmates. We called it 7day3io. It lasted three years and produced more than a hundred projects. I learned how to work fast, talk to clients, and deliver things that got built.
               </p>
-              <p style={{ marginBottom: '24px' }}>
+              <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.3">
                 After graduating I tried building something from scratch — a creative studio, a marketplace, a CGI practice. Some of it worked. All of it taught me something. The thread through all of it was the same: I want to understand how something works, then make it.
               </p>
-              <p style={{ marginBottom: '24px' }}>
+              <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.45">
                 Right now I'm a computational designer at a facade practice in Delhi. The work is technical and I like it. But I'm building toward something more: a practice in Europe or the UAE where computation is a design position, not a production step.
               </p>
               <p
+                className="reveal"
                 style={{
                   fontStyle: 'italic',
                   opacity: 0.6,
                   marginTop: '32px'
                 }}
+                data-stagger-delay="0.6"
               >
                 Outside the work I read widely — philosophy, evolutionary psychology, the long history of how humans became what we are. It shapes how I see problems. I don't separate the thinking from the making.
               </p>
             </div>
           </div>
           <div>
-            <div style={{ marginBottom: '40px' }}>
+            <div className="reveal" style={{ marginBottom: '40px' }}>
               <p
                 style={{
                   fontFamily: 'Arial, sans-serif',
@@ -571,7 +601,7 @@ const Home = () => {
                 2018 – 2023
               </p>
             </div>
-            <div style={{ marginBottom: '40px' }}>
+            <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.1">
               <p
                 style={{
                   fontFamily: 'Arial, sans-serif',
@@ -598,7 +628,7 @@ const Home = () => {
                 Dec 2025 – present
               </p>
             </div>
-            <div style={{ marginBottom: '40px' }}>
+            <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.2">
               <p
                 style={{
                   fontFamily: 'Arial, sans-serif',
@@ -628,10 +658,10 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div>
+            <div className="reveal" data-stagger-delay="0.3">
               <a
                 href="#"
-                className="transition-opacity duration-200 hover:opacity-70"
+                className="transition-opacity duration-200 hover:opacity-70 cursor-hover"
                 style={{
                   fontFamily: 'Georgia, serif',
                   fontSize: '15px',
@@ -649,6 +679,7 @@ const Home = () => {
       {/* SECTION 09 - CONTENT/VIDEOS */}
       <section className="px-8 md:px-16 py-24 md:py-32">
         <p
+          className="reveal section-label-reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '10px',
@@ -662,6 +693,7 @@ const Home = () => {
           Writing & Video
         </p>
         <p
+          className="reveal"
           style={{
             fontFamily: 'Georgia, serif',
             fontSize: '16px',
@@ -670,12 +702,13 @@ const Home = () => {
             opacity: 0.45,
             marginBottom: '48px'
           }}
+          data-stagger-delay="0.1"
         >
           Architecture, ideas, and the spaces between things.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {videos.map((video, index) => (
-            <div key={index}>
+            <div key={index} className="reveal cursor-hover" data-stagger-delay={index * 0.1}>
               <div
                 className="flex items-center justify-center cursor-pointer transition-opacity duration-200 hover:opacity-70"
                 style={{
@@ -721,6 +754,7 @@ const Home = () => {
           ))}
         </div>
         <p
+          className="reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '11px',
@@ -728,6 +762,7 @@ const Home = () => {
             opacity: 0.4,
             textAlign: 'center'
           }}
+          data-stagger-delay="0.4"
         >
           Videos from Instagram / YouTube. I will replace these with embed links.
         </p>
@@ -735,8 +770,9 @@ const Home = () => {
 
       {/* SECTION 10 - CONTACT */}
       <section id="contact" className="px-8 md:px-16 py-24 md:py-32">
-        <div style={{ width: '100%', height: '0.5px', background: 'rgba(255, 255, 255, 0.08)', marginBottom: '48px' }} />
+        <div className="reveal" style={{ width: '100%', height: '0.5px', background: 'rgba(255, 255, 255, 0.08)', marginBottom: '48px' }} />
         <p
+          className="reveal section-label-reveal"
           style={{
             fontFamily: 'Arial, sans-serif',
             fontSize: '10px',
@@ -751,7 +787,7 @@ const Home = () => {
         </p>
         <a
           href="mailto:hello@ajay.design"
-          className="block transition-opacity duration-200 hover:opacity-70 mb-16"
+          className="block transition-opacity duration-200 hover:opacity-70 mb-16 cursor-hover contact-email-reveal reveal"
           style={{
             fontFamily: 'Georgia, serif',
             fontSize: 'clamp(28px, 6vw, 44px)',
@@ -759,6 +795,7 @@ const Home = () => {
             textDecoration: 'none',
             cursor: 'pointer'
           }}
+          data-stagger-delay="0.1"
         >
           hello@ajay.design
         </a>
@@ -766,7 +803,7 @@ const Home = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12"
           style={{ borderTop: '0.5px solid rgba(255, 255, 255, 0.08)' }}
         >
-          <div>
+          <div className="reveal" data-stagger-delay="0.2">
             <p
               style={{
                 fontFamily: 'Arial, sans-serif',
@@ -790,7 +827,7 @@ const Home = () => {
               New Delhi, India
             </p>
           </div>
-          <div>
+          <div className="reveal" data-stagger-delay="0.3">
             <p
               style={{
                 fontFamily: 'Arial, sans-serif',
@@ -816,7 +853,7 @@ const Home = () => {
               Full-time · from mid-2027
             </p>
           </div>
-          <div>
+          <div className="reveal" data-stagger-delay="0.4">
             <p
               style={{
                 fontFamily: 'Arial, sans-serif',
@@ -838,12 +875,12 @@ const Home = () => {
                 lineHeight: 1.6
               }}
             >
-              <a href="#" className="transition-opacity duration-200 hover:opacity-70" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
+              <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
               Portfolio PDF on request
             </p>
           </div>
         </div>
-        <div className="text-center pt-20">
+        <div className="text-center pt-20 reveal" data-stagger-delay="0.5">
           <p
             style={{
               fontFamily: 'Arial, sans-serif',
