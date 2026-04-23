@@ -80,8 +80,8 @@ const ProjectDetail = () => {
           </p>
           <h1
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(36px, 8vw, 64px)',
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: 'clamp(36px, 8vw, 58px)',
               color: '#E8E5DE',
               fontWeight: 400,
               marginBottom: '16px',
@@ -92,7 +92,7 @@ const ProjectDetail = () => {
           </h1>
           <p
             style={{
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Instrument Serif', serif",
               fontSize: '20px',
               fontStyle: 'italic',
               color: '#E8E5DE',
@@ -134,8 +134,8 @@ const ProjectDetail = () => {
         <div className="max-w-3xl mx-auto mb-16">
           <p
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: '16px',
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: '15px',
               lineHeight: 1.8,
               color: '#E8E5DE',
               opacity: 0.85,
@@ -160,8 +160,8 @@ const ProjectDetail = () => {
           </p>
           <p
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: '16px',
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: '15px',
               lineHeight: 1.8,
               color: '#E8E5DE',
               opacity: 0.85
@@ -191,7 +191,7 @@ const ProjectDetail = () => {
             Tools —{' '}
             <span
               style={{
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Instrument Serif', serif",
                 fontStyle: 'italic',
                 opacity: 0.6
               }}
@@ -207,7 +207,7 @@ const ProjectDetail = () => {
             onClick={() => navigate(`/project/${nextProject.id}`)}
             className="transition-opacity duration-200 hover:opacity-70"
             style={{
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Instrument Serif', serif",
               fontSize: '16px',
               color: '#E8E5DE',
               background: 'none',

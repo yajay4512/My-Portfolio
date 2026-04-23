@@ -36,7 +36,7 @@ const Navigation = () => {
           to="/"
           className="transition-opacity duration-200 hover:opacity-70"
           style={{
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Instrument Serif', serif",
             fontSize: '15px',
             color: '#E8E5DE',
             textDecoration: 'none'

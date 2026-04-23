@@ -151,8 +151,8 @@ const Home = () => {
           </p>
           <h1
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(32px, 6vw, 48px)',
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: 'clamp(32px, 6vw, 44px)',
               lineHeight: 1.1,
               color: '#E8E5DE',
               fontWeight: 400,
@@ -165,8 +165,8 @@ const Home = () => {
           <p
             className="hero-reveal hero-reveal-4"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: '20px',
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: '21px',
               fontStyle: 'italic',
               color: '#E8E5DE',
               opacity: 0.45
@@ -229,7 +229,7 @@ const Home = () => {
               </p>
               <h3
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: '24px',
                   color: '#E8E5DE',
                   marginBottom: '8px',
@@ -314,7 +314,7 @@ const Home = () => {
               data-stagger-delay={index * 0.08}
             >
               <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E5DE', opacity: 0.4 }}>{project.number}</div>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: '16px', color: '#E8E5DE' }}>{project.name}</div>
+              <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: '16px', color: '#E8E5DE' }}>{project.name}</div>
               <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E5DE', opacity: 0.4 }}>{project.type}</div>
               <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E5DE', opacity: 0.4 }}>{project.year}</div>
             </div>
@@ -341,8 +341,8 @@ const Home = () => {
         <p
           className="reveal"
           style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: '18px',
+            fontFamily: "'Instrument Serif', serif",
+            fontSize: '19px',
             fontStyle: 'italic',
             color: '#E8E5DE',
             opacity: 0.45,
@@ -369,7 +369,7 @@ const Home = () => {
               </p>
               <h3
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: '20px',
                   color: '#E8E5DE',
                   marginBottom: '16px',
@@ -380,7 +380,7 @@ const Home = () => {
               </h3>
               <p
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: '14px',
                   color: '#E8E5DE',
                   opacity: 0.45,
@@ -402,8 +402,8 @@ const Home = () => {
           <p
             className="reveal"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: '32px',
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: '30px',
               fontWeight: 400,
               color: '#E8E5DE',
               opacity: 0.35,
@@ -417,8 +417,8 @@ const Home = () => {
           <p
             className="reveal"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: '32px',
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: '30px',
               fontWeight: 400,
               color: '#E8E5DE',
               opacity: 1,
@@ -451,7 +451,7 @@ const Home = () => {
         <p
           className="reveal"
           style={{
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Instrument Serif', serif",
             fontSize: '20px',
             fontStyle: 'italic',
             color: '#E8E5DE',
@@ -473,8 +473,8 @@ const Home = () => {
                 <div>
                   <h3
                     style={{
-                      fontFamily: 'Georgia, serif',
-                      fontSize: '36px',
+                      fontFamily: "'Instrument Serif', serif",
+                      fontSize: '34px',
                       color: '#E8E5DE',
                       marginBottom: '8px',
                       fontWeight: 400,
@@ -497,8 +497,8 @@ const Home = () => {
                 <div>
                   <p
                     style={{
-                      fontFamily: 'Georgia, serif',
-                      fontSize: '16px',
+                      fontFamily: "'Instrument Serif', serif",
+                      fontSize: '17px',
                       fontStyle: 'italic',
                       color: '#E8E5DE',
                       opacity: 0.45,
@@ -542,8 +542,8 @@ const Home = () => {
           <div>
             <div
               style={{
-                fontFamily: 'Georgia, serif',
-                fontSize: '16px',
+                fontFamily: "'Instrument Serif', serif",
+                fontSize: '15px',
                 lineHeight: 1.9,
                 color: '#E8E5DE',
                 opacity: 0.85
@@ -566,7 +566,8 @@ const Home = () => {
                 style={{
                   fontStyle: 'italic',
                   opacity: 0.6,
-                  marginTop: '32px'
+                  marginTop: '32px',
+                  fontSize: '17px'
                 }}
                 data-stagger-delay="0.6"
               >
@@ -591,7 +592,7 @@ const Home = () => {
               </p>
               <p
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: '15px',
                   color: '#E8E5DE',
                   lineHeight: 1.6
@@ -617,7 +618,7 @@ const Home = () => {
               </p>
               <p
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: '15px',
                   color: '#E8E5DE',
                   lineHeight: 1.6
@@ -642,7 +643,7 @@ const Home = () => {
               >
                 Tools
               </p>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: '14px', color: '#E8E5DE', lineHeight: 1.8 }}>
+              <div class="about-info-text" style={{ fontFamily: "'Instrument Serif', serif", fontSize: '14px', color: '#E8E5DE', lineHeight: 1.8 }}>
                 <p style={{ marginBottom: '12px', opacity: 0.7 }}>
                   <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Computational:</span><br />
                   Rhinoceros 3D · Grasshopper · GHPython<br />
@@ -663,7 +664,7 @@ const Home = () => {
                 href="#"
                 className="transition-opacity duration-200 hover:opacity-70 cursor-hover"
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: '15px',
                   color: '#E8E5DE',
                   textDecoration: 'none'
@@ -695,7 +696,7 @@ const Home = () => {
         <p
           className="reveal"
           style={{
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Instrument Serif', serif",
             fontSize: '16px',
             fontStyle: 'italic',
             color: '#E8E5DE',
@@ -742,7 +743,7 @@ const Home = () => {
               </div>
               <p
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: '14px',
                   color: '#E8E5DE',
                   opacity: 0.45
@@ -789,8 +790,8 @@ const Home = () => {
           href="mailto:hello@ajay.design"
           className="block transition-opacity duration-200 hover:opacity-70 mb-16 cursor-hover contact-email-reveal reveal"
           style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(28px, 6vw, 44px)',
+            fontFamily: "'Instrument Serif', serif",
+            fontSize: 'clamp(28px, 6vw, 40px)',
             color: '#E8E5DE',
             textDecoration: 'none',
             cursor: 'pointer'
@@ -819,7 +820,7 @@ const Home = () => {
             </p>
             <p
               style={{
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Instrument Serif', serif",
                 fontSize: '15px',
                 color: '#E8E5DE'
               }}
@@ -843,7 +844,7 @@ const Home = () => {
             </p>
             <p
               style={{
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Instrument Serif', serif",
                 fontSize: '15px',
                 color: '#E8E5DE',
                 lineHeight: 1.6
@@ -869,7 +870,7 @@ const Home = () => {
             </p>
             <p
               style={{
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Instrument Serif', serif",
                 fontSize: '15px',
                 color: '#E8E5DE',
                 lineHeight: 1.6
