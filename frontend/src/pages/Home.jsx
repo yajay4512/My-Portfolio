@@ -103,9 +103,11 @@ const Home = () => {
           alignItems: 'flex-end'
         }}
       >
-        <img
-          src="https://customer-assets.emergentagent.com/job_ajay-portfolio-12/artifacts/bef1dv33_IMG_9950.JPG"
-          alt="Workspace"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           style={{
             position: 'absolute',
             top: 0,
@@ -115,7 +117,9 @@ const Home = () => {
             objectFit: 'cover',
             zIndex: 1
           }}
-        />
+        >
+          <source src="https://res.cloudinary.com/diqanluvu/video/upload/v1778402666/Landscape_4k_1_h9ejbc.mp4" type="video/mp4" />
+        </video>
         <div
           style={{
             position: 'absolute',
