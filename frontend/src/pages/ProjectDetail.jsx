@@ -22,6 +22,11 @@ const ProjectDetail = () => {
 
   const nextProject = projects[(project.id % projects.length)];
 
+  // Helper to check if image is a URL or placeholder
+  const isImageUrl = (image) => {
+    return image && (image.startsWith('http://') || image.startsWith('https://'));
+  };
+
   const ImagePlaceholder = ({ filename, aspectRatio = '16/9' }) => (
     <div
       className="flex items-center justify-center"
@@ -44,6 +49,24 @@ const ProjectDetail = () => {
       </span>
     </div>
   );
+
+  const ProjectImage = ({ src, aspectRatio = '16/9', alt = 'Project image' }) => {
+    if (isImageUrl(src)) {
+      return (
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            width: '100%',
+            aspectRatio: aspectRatio,
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        />
+      );
+    }
+    return <ImagePlaceholder filename={src} aspectRatio={aspectRatio} />;
+  };
 
   return (
     <div style={{ background: '#0E0E0E', minHeight: '100vh', paddingTop: '80px' }}>
@@ -127,7 +150,7 @@ const ProjectDetail = () => {
 
         {/* Hero image */}
         <div className="mb-16">
-          <ImagePlaceholder filename={project.heroImage} aspectRatio="16/9" />
+          <ProjectImage src={project.heroImage} aspectRatio="16/9" alt={`${project.name} hero`} />
         </div>
 
         {/* Body content */}
@@ -174,9 +197,16 @@ const ProjectDetail = () => {
         {/* Image grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 mb-16">
           {project.images.map((image, index) => (
-            <ImagePlaceholder key={index} filename={image} aspectRatio="4/3" />
+            <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
           ))}
         </div>
+
+        {/* Full width image if exists */}
+        {project.fullWidthImage && (
+          <div className="mb-16">
+            <ProjectImage src={project.fullWidthImage} aspectRatio="16/9" alt={`${project.name} full view`} />
+          </div>
+        )}
 
         {/* Tools */}
         <div className="max-w-3xl mx-auto mb-24">
