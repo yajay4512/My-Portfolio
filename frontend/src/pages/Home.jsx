@@ -103,11 +103,9 @@ const Home = () => {
           alignItems: 'flex-end'
         }}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          src="https://customer-assets.emergentagent.com/job_ajay-portfolio-12/artifacts/bef1dv33_IMG_9950.JPG"
+          alt="Workspace"
           style={{
             position: 'absolute',
             top: 0,
@@ -117,9 +115,7 @@ const Home = () => {
             objectFit: 'cover',
             zIndex: 1
           }}
-        >
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-        </video>
+        />
         <div
           style={{
             position: 'absolute',
