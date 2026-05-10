@@ -168,38 +168,77 @@ const ProjectDetail = () => {
             {project.description}
           </p>
 
-          <p
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: '10px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.18em',
-              color: '#E8E5DE',
-              opacity: 0.4,
-              marginBottom: '16px'
-            }}
-          >
-            Process
-          </p>
-          <p
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontSize: '15px',
-              lineHeight: 1.8,
-              color: '#E8E5DE',
-              opacity: 0.85
-            }}
-          >
-            {project.process}
-          </p>
+          {/* Only show Process section if it exists (not for KOMFORT1) */}
+          {project.process && (
+            <>
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.18em',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  marginBottom: '16px'
+                }}
+              >
+                Process
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontSize: '15px',
+                  lineHeight: 1.8,
+                  color: '#E8E5DE',
+                  opacity: 0.85
+                }}
+              >
+                {project.process}
+              </p>
+            </>
+          )}
         </div>
 
-        {/* Image grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 mb-16">
-          {project.images.map((image, index) => (
-            <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
-          ))}
-        </div>
+        {/* Custom image sequence for KOMFORT1 */}
+        {project.imageSequence && (
+          <div className="mb-16" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {project.imageSequence.map((item, index) => {
+              if (item.type === 'full') {
+                return (
+                  <ProjectImage 
+                    key={index} 
+                    src={item.src} 
+                    aspectRatio={item.aspectRatio} 
+                    alt={`${project.name} view ${index + 1}`} 
+                  />
+                );
+              } else if (item.type === 'double') {
+                return (
+                  <div key={index} className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '8px' }}>
+                    {item.images.map((img, imgIndex) => (
+                      <ProjectImage 
+                        key={imgIndex} 
+                        src={img} 
+                        aspectRatio={item.aspectRatio} 
+                        alt={`${project.name} detail ${imgIndex + 1}`} 
+                      />
+                    ))}
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </div>
+        )}
+
+        {/* Standard image grid for other projects */}
+        {project.images && !project.imageSequence && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 mb-16">
+            {project.images.map((image, index) => (
+              <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
+            ))}
+          </div>
+        )}
 
         {/* Full width image if exists */}
         {project.fullWidthImage && (

@@ -19,17 +19,29 @@ export const projects = [
     type: 'Fabricated · Built',
     year: '2024',
     description: 'A relaxed lounger built on a sleek cantilever frame of brushed stainless steel. The design features generously padded leather cushions with button tufting across the seat, backrest, and integrated headrest for full-body comfort. A durable canvas backing provides support while maintaining a clean profile. The sled-base frame lifts the seat off the ground, creating a floating effect and allowing for gentle reclining movement. The combination of industrial metal framework and soft leather upholstery makes this lounger suitable for both residential and commercial spaces where comfort and visual impact matter equally.',
-    process: 'Physical prototyping informed the digital model. Steel frame was laser-cut and welded. Teak slats were milled to exact dimensions. Assembly designed for disassembly and maintenance.',
     tools: 'Rhinoceros 3D · AutoCAD · Photoshop',
     location: 'Delhi',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778404642/O1_e81nnh.png',
-    images: [
-      'https://res.cloudinary.com/diqanluvu/image/upload/v1778402572/AD30E4E8-CB6F-4686-9323-4417D6F75212_mmdni3.jpg',
-      'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/WhatsApp_Image_2025-10-31_at_5.52.59_PM_olrl1z.jpg',
-      'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/IMG_2201_fetbrm.jpg',
-      'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/METAL_CHAIR_02_q60wej.png'
-    ],
-    fullWidthImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778404766/METAL_CHAIR_fmyoko.png'
+    imageSequence: [
+      {
+        type: 'full',
+        aspectRatio: '3/2',
+        src: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/WhatsApp_Image_2025-10-31_at_5.52.59_PM_olrl1z.jpg'
+      },
+      {
+        type: 'full',
+        aspectRatio: '16/9',
+        src: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778402572/AD30E4E8-CB6F-4686-9323-4417D6F75212_mmdni3.jpg'
+      },
+      {
+        type: 'double',
+        aspectRatio: '4/3',
+        images: [
+          'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/IMG_2201_fetbrm.jpg',
+          'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/METAL_CHAIR_02_q60wej.png'
+        ]
+      }
+    ]
   },
   {
     id: 3,
