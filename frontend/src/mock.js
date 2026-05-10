@@ -22,25 +22,11 @@ export const projects = [
     tools: 'Rhinoceros 3D · AutoCAD · Photoshop',
     location: 'Delhi',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778404642/O1_e81nnh.png',
-    imageSequence: [
-      {
-        type: 'full',
-        aspectRatio: '3/2',
-        src: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/WhatsApp_Image_2025-10-31_at_5.52.59_PM_olrl1z.jpg'
-      },
-      {
-        type: 'full',
-        aspectRatio: '16/9',
-        src: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778402572/AD30E4E8-CB6F-4686-9323-4417D6F75212_mmdni3.jpg'
-      },
-      {
-        type: 'double',
-        aspectRatio: '4/3',
-        images: [
-          'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/IMG_2201_fetbrm.jpg',
-          'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/METAL_CHAIR_02_q60wej.png'
-        ]
-      }
+    squareImages: [
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/WhatsApp_Image_2025-10-31_at_5.52.59_PM_olrl1z.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1778402572/AD30E4E8-CB6F-4686-9323-4417D6F75212_mmdni3.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/IMG_2201_fetbrm.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1778404640/METAL_CHAIR_02_q60wej.png'
     ]
   },
   {

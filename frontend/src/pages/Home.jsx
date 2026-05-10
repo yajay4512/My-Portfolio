@@ -207,36 +207,50 @@ const Home = () => {
         >
           Selected Work
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ borderLeft: '0.5px solid rgba(255, 255, 255, 0.08)' }}>
-          {projects.slice(0, 3).map((project, index) => (
-            <div
-              key={project.id}
-              onClick={() => navigate(`/project/${project.id}`)}
-              className="cursor-pointer cursor-hover transition-opacity duration-200 hover:opacity-60 px-6 py-8 reveal"
-              style={{ borderRight: '0.5px solid rgba(255, 255, 255, 0.08)' }}
-              data-stagger-delay={index * 0.1}
-            >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.08)' }}>
+          {/* Project 1: LINE rocking chair */}
+          <div
+            onClick={() => navigate(`/project/1`)}
+            className="cursor-pointer cursor-hover transition-opacity duration-200 reveal group"
+            style={{ borderRight: '1px solid rgba(255, 255, 255, 0.08)' }}
+            data-stagger-delay="0"
+          >
+            <div style={{ position: 'relative' }}>
+              <div
+                style={{
+                  aspectRatio: '4/3',
+                  background: '#1A1A1A',
+                  width: '100%'
+                }}
+              />
+              <div
+                className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-200"
+                style={{ pointerEvents: 'none' }}
+              />
+            </div>
+            <div style={{ padding: '24px 16px' }}>
               <p
                 style={{
                   fontFamily: 'Arial, sans-serif',
                   fontSize: '11px',
                   color: '#E8E5DE',
                   opacity: 0.4,
-                  marginBottom: '12px'
+                  marginBottom: '8px'
                 }}
               >
-                {project.number}
+                01
               </p>
               <h3
+                className="group-hover:opacity-70 transition-opacity duration-200"
                 style={{
                   fontFamily: "'Instrument Serif', serif",
-                  fontSize: '24px',
+                  fontSize: '22px',
                   color: '#E8E5DE',
-                  marginBottom: '8px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}
               >
-                {project.name}
+                LINE rocking chair
               </h3>
               <p
                 style={{
@@ -247,10 +261,126 @@ const Home = () => {
                   letterSpacing: '0.06em'
                 }}
               >
-                {project.type}
+                Parametric · Fabricated
               </p>
             </div>
-          ))}
+          </div>
+
+          {/* Project 2: LAITLUM wall art */}
+          <div
+            onClick={() => navigate(`/project/3`)}
+            className="cursor-pointer cursor-hover transition-opacity duration-200 reveal group"
+            style={{ borderRight: '1px solid rgba(255, 255, 255, 0.08)' }}
+            data-stagger-delay="0.1"
+          >
+            <div style={{ position: 'relative' }}>
+              <div
+                style={{
+                  aspectRatio: '4/3',
+                  background: '#1A1A1A',
+                  width: '100%'
+                }}
+              />
+              <div
+                className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-200"
+                style={{ pointerEvents: 'none' }}
+              />
+            </div>
+            <div style={{ padding: '24px 16px' }}>
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '11px',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  marginBottom: '8px'
+                }}
+              >
+                03
+              </p>
+              <h3
+                className="group-hover:opacity-70 transition-opacity duration-200"
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontSize: '22px',
+                  color: '#E8E5DE',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}
+              >
+                LAITLUM wall art
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '11px',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  letterSpacing: '0.06em'
+                }}
+              >
+                Data · CNC · Installed
+              </p>
+            </div>
+          </div>
+
+          {/* Project 3: Mortar House */}
+          <div
+            onClick={() => navigate(`/project/4`)}
+            className="cursor-pointer cursor-hover transition-opacity duration-200 reveal group"
+            style={{ borderRight: '1px solid rgba(255, 255, 255, 0.08)' }}
+            data-stagger-delay="0.2"
+          >
+            <div style={{ position: 'relative' }}>
+              <div
+                style={{
+                  aspectRatio: '4/3',
+                  background: '#1A1A1A',
+                  width: '100%'
+                }}
+              />
+              <div
+                className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-200"
+                style={{ pointerEvents: 'none' }}
+              />
+            </div>
+            <div style={{ padding: '24px 16px' }}>
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '11px',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  marginBottom: '8px'
+                }}
+              >
+                04
+              </p>
+              <h3
+                className="group-hover:opacity-70 transition-opacity duration-200"
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontSize: '22px',
+                  color: '#E8E5DE',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}
+              >
+                Mortar House
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '11px',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  letterSpacing: '0.06em'
+                }}
+              >
+                Interior · Built
+              </p>
+            </div>
+          </div>
         </div>
         <div className="flex justify-end mt-8 reveal" data-stagger-delay="0.3">
           <button

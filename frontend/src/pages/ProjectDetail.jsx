@@ -199,8 +199,40 @@ const ProjectDetail = () => {
           )}
         </div>
 
-        {/* Custom image sequence for KOMFORT1 */}
-        {project.imageSequence && (
+        {/* Square images layout for KOMFORT1 */}
+        {project.squareImages && (
+          <div style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+              {project.squareImages.map((image, index) => (
+                <div
+                  key={index}
+                  style={{
+                    width: '100%',
+                    aspectRatio: '1/1',
+                    background: '#111111',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <img
+                    src={image}
+                    alt={`${project.name} view ${index + 1}`}
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                      display: 'block'
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Custom image sequence for other projects */}
+        {project.imageSequence && !project.squareImages && (
           <div className="mb-16" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {project.imageSequence.map((item, index) => {
               if (item.type === 'full') {
@@ -232,7 +264,7 @@ const ProjectDetail = () => {
         )}
 
         {/* Standard image grid for other projects */}
-        {project.images && !project.imageSequence && (
+        {project.images && !project.imageSequence && !project.squareImages && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 mb-16">
             {project.images.map((image, index) => (
               <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
