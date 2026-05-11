@@ -146,15 +146,15 @@ const ProjectDetail = () => {
           </div>
         </div>
 
-        <div style={{ width: '100%', height: '0.5px', background: 'rgba(255, 255, 255, 0.08)', marginBottom: '64px' }} />
+        <div style={{ width: '100%', height: '0.5px', background: 'rgba(255, 255, 255, 0.08)', marginBottom: '80px' }} />
 
-        {/* Hero image */}
-        <div className="mb-16">
-          <ProjectImage src={project.heroImage} aspectRatio="16/9" alt={`${project.name} hero`} />
+        {/* Hero image - cinematic 3:1 aspect ratio */}
+        <div className="mb-24 px-8 md:px-16">
+          <ProjectImage src={project.heroImage} aspectRatio="3/1" alt={`${project.name} hero`} />
         </div>
 
         {/* Body content */}
-        <div className="max-w-3xl mx-auto mb-16">
+        <div className="max-w-3xl mx-auto mb-24 px-8 md:px-16">
           <p
             style={{
               fontFamily: "'Instrument Serif', serif",
@@ -162,7 +162,7 @@ const ProjectDetail = () => {
               lineHeight: 1.8,
               color: '#E8E5DE',
               opacity: 0.85,
-              marginBottom: '48px'
+              marginBottom: '64px'
             }}
           >
             {project.description}
@@ -199,41 +199,9 @@ const ProjectDetail = () => {
           )}
         </div>
 
-        {/* Square images layout for KOMFORT1 */}
-        {project.squareImages && (
-          <div style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-              {project.squareImages.map((image, index) => (
-                <div
-                  key={index}
-                  style={{
-                    width: '100%',
-                    aspectRatio: '1/1',
-                    background: '#111111',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  <img
-                    src={image}
-                    alt={`${project.name} view ${index + 1}`}
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      objectFit: 'contain',
-                      display: 'block'
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Custom image sequence for other projects */}
-        {project.imageSequence && !project.squareImages && (
-          <div className="mb-16" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        {project.imageSequence && (
+          <div className="mb-24 px-8 md:px-16" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {project.imageSequence.map((item, index) => {
               if (item.type === 'full') {
                 return (
@@ -246,7 +214,7 @@ const ProjectDetail = () => {
                 );
               } else if (item.type === 'double') {
                 return (
-                  <div key={index} className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '8px' }}>
+                  <div key={index} className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '16px' }}>
                     {item.images.map((img, imgIndex) => (
                       <ProjectImage 
                         key={imgIndex} 
@@ -263,12 +231,14 @@ const ProjectDetail = () => {
           </div>
         )}
 
-        {/* Standard image grid for other projects */}
-        {project.images && !project.imageSequence && !project.squareImages && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 mb-16">
-            {project.images.map((image, index) => (
-              <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
-            ))}
+        {/* Standard image grid for all projects */}
+        {project.images && !project.imageSequence && (
+          <div className="mb-24 px-8 md:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {project.images.map((image, index) => (
+                <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
+              ))}
+            </div>
           </div>
         )}
 
@@ -280,7 +250,7 @@ const ProjectDetail = () => {
         )}
 
         {/* Tools */}
-        <div className="max-w-3xl mx-auto mb-24">
+        <div className="max-w-3xl mx-auto mb-32 px-8 md:px-16">
           <p
             style={{
               fontFamily: 'Arial, sans-serif',
@@ -303,7 +273,7 @@ const ProjectDetail = () => {
         </div>
 
         {/* Next project */}
-        <div className="flex justify-end pb-24">
+        <div className="flex justify-end pb-32 px-8 md:px-16">
           <button
             onClick={() => navigate(`/project/${nextProject.id}`)}
             className="transition-opacity duration-200 hover:opacity-70"
