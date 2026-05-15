@@ -216,11 +216,14 @@ const Home = () => {
             data-stagger-delay="0"
           >
             <div style={{ position: 'relative' }}>
-              <div
+              <img
+                src="https://res.cloudinary.com/diqanluvu/image/upload/v1778848115/Line_slected_works_pemokg.jpg"
+                alt="LINE rocking chair"
                 style={{
+                  width: '100%',
                   aspectRatio: '4/3',
-                  background: '#1A1A1A',
-                  width: '100%'
+                  objectFit: 'cover',
+                  display: 'block'
                 }}
               />
               <div

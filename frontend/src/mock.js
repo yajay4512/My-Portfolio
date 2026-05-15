@@ -9,7 +9,8 @@ export const projects = [
     process: 'The chair began as a Grasshopper definition exploring arc geometries and weight distribution. Multiple iterations tested different radii and contact points. Final geometry was nested for CNC cutting, then laminated and assembled by hand.',
     tools: 'Rhinoceros 3D · Grasshopper · GHPython · V-Ray',
     location: 'Delhi',
-    heroImage: 'line-chair-hero.jpg',
+    heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778848115/Line_hero_k4ghx4.jpg',
+    selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778848115/Line_slected_works_pemokg.jpg',
     images: ['line-chair-01.jpg', 'line-chair-02.jpg', 'line-chair-03.jpg', 'line-chair-04.jpg']
   },
   {
