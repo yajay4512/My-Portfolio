@@ -447,7 +447,7 @@ const Home = () => {
               data-stagger-delay={index * 0.08}
             >
               <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E5DE', opacity: 0.4 }}>{project.number}</div>
-              <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: '16px', color: '#E8E5DE' }}>{project.name}</div>
+              <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: '16px', color: '#E8E5DE' }}>{project.shortName || project.name}</div>
               <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E5DE', opacity: 0.4 }}>{project.type}</div>
               <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E5DE', opacity: 0.4 }}>{project.year}</div>
             </div>
