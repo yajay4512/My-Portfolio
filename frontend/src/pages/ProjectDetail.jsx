@@ -143,6 +143,12 @@ const ProjectDetail = () => {
                 <span>{project.location}</span>
               </>
             )}
+            {project.practice && (
+              <>
+                <span>·</span>
+                <span>Practice — {project.practice}</span>
+              </>
+            )}
           </div>
         </div>
 
