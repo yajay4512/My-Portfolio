@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { projects, studios, processSteps, videos } from '../mock';
+import Lightbox from '../components/Lightbox';
 
 const Home = () => {
   const navigate = useNavigate();
   const observerRef = useRef(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentLightboxIndex, setCurrentLightboxIndex] = useState(null);
+  const [lightboxImages, setLightboxImages] = useState([]);
 
   useEffect(() => {
     // Setup Intersection Observer for scroll reveals
@@ -628,23 +632,104 @@ const Home = () => {
                   </p>
                 </div>
                 <div>
-                  <p
-                    style={{
-                      fontFamily: "'Instrument Serif', serif",
-                      fontSize: '17px',
-                      fontStyle: 'italic',
-                      color: '#E8E5DE',
-                      opacity: 0.45,
-                      marginBottom: '24px'
-                    }}
-                  >
-                    {studio.description}
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                  {/* Show intro text for 7day3io */}
+                  {studio.intro && (
+                    <p
+                      style={{
+                        fontFamily: "'Instrument Serif', serif",
+                        fontSize: '16px',
+                        fontStyle: 'italic',
+                        color: '#E8E5DE',
+                        opacity: 0.6,
+                        maxWidth: '560px',
+                        marginBottom: '48px',
+                        lineHeight: 1.7
+                      }}
+                    >
+                      {studio.intro}
+                    </p>
+                  )}
+                  
+                  {/* Original description for other studios */}
+                  {!studio.intro && (
+                    <p
+                      style={{
+                        fontFamily: "'Instrument Serif', serif",
+                        fontSize: '17px',
+                        fontStyle: 'italic',
+                        color: '#E8E5DE',
+                        opacity: 0.45,
+                        marginBottom: '24px'
+                      }}
+                    >
+                      {studio.description}
+                    </p>
+                  )}
+                  
+                  {/* 3 preview images (kept for all studios) */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-8">
                     {studio.images.map((image, imgIndex) => (
                       <ImagePlaceholder key={imgIndex} filename={image} aspectRatio="16/9" className="reveal" data-stagger-delay={(imgIndex + 1) * 0.1} />
                     ))}
                   </div>
+                  
+                  {/* 20-image gallery grid for 7day3io */}
+                  {studio.galleryImages && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                      {studio.galleryImages.map((image, imgIndex) => {
+                        const isPlaceholder = image.startsWith('placeholder-');
+                        return (
+                          <div
+                            key={imgIndex}
+                            className="cursor-pointer transition-all duration-200 group cursor-hover"
+                            onClick={() => {
+                              setLightboxImages(studio.galleryImages);
+                              setCurrentLightboxIndex(imgIndex);
+                              setLightboxOpen(true);
+                            }}
+                            style={{
+                              position: 'relative',
+                              aspectRatio: '4/3',
+                              overflow: 'hidden'
+                            }}
+                          >
+                            {isPlaceholder ? (
+                              <div
+                                style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  background: '#1A1A1A',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  fontFamily: 'Arial, sans-serif',
+                                  fontSize: '12px',
+                                  color: '#E8E5DE',
+                                  opacity: 0.4
+                                }}
+                              >
+                                {image.replace('placeholder-', '')}
+                              </div>
+                            ) : (
+                              <img
+                                src={image}
+                                alt={`${studio.name} project ${imgIndex + 1}`}
+                                style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  objectFit: 'cover'
+                                }}
+                              />
+                            )}
+                            <div
+                              className="absolute inset-0 bg-black opacity-0 group-hover:opacity-25 transition-opacity duration-200"
+                              style={{ pointerEvents: 'none' }}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
               {index < studios.length - 1 && (
@@ -654,6 +739,19 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <Lightbox
+          images={lightboxImages}
+          currentIndex={currentLightboxIndex}
+          onClose={() => {
+            setLightboxOpen(false);
+            setCurrentLightboxIndex(null);
+          }}
+          onNavigate={(newIndex) => setCurrentLightboxIndex(newIndex)}
+        />
+      )}
 
       {/* SECTION 08 - ABOUT */}
       <section id="about" className="px-8 md:px-16 py-24 md:py-32">

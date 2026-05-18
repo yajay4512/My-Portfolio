@@ -123,7 +123,15 @@ export const studios = [
     name: '7day3io',
     years: '2019 – 2022',
     description: 'Freelance computational design studio with two batchmates. 100+ projects — product visualisation, residential design, event fabrication, UAE clients.',
-    images: ['7day3io-01.jpg', '7day3io-02.jpg', '7day3io-03.jpg']
+    intro: 'A freelance computational design studio run with two batchmates from NIT Hamirpur. 2019 to 2022. Over a hundred projects — residential design, product visualisation, event fabrication, clients across India and UAE. This is where the work began.',
+    images: ['7day3io-01.jpg', '7day3io-02.jpg', '7day3io-03.jpg'],
+    galleryImages: [
+      'placeholder-01', 'placeholder-02', 'placeholder-03', 'placeholder-04',
+      'placeholder-05', 'placeholder-06', 'placeholder-07', 'placeholder-08',
+      'placeholder-09', 'placeholder-10', 'placeholder-11', 'placeholder-12',
+      'placeholder-13', 'placeholder-14', 'placeholder-15', 'placeholder-16',
+      'placeholder-17', 'placeholder-18', 'placeholder-19', 'placeholder-20'
+    ]
   },
   {
     name: 'Grull.Work',
