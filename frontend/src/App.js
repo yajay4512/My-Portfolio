@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
+import StudioDetail from './pages/StudioDetail';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/studio/:id" element={<StudioDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
