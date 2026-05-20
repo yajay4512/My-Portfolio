@@ -99,7 +99,7 @@ const Home = () => {
       <section
         className="relative"
         style={{
-          height: '100vh',
+          height: '75vh',
           display: 'flex',
           alignItems: 'flex-end'
         }}
