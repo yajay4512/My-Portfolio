@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { projects, studios, processSteps, videos } from '../mock';
+import { projects, studios, processSteps, videos, contentPieces } from '../mock';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -866,66 +866,147 @@ const Home = () => {
         >
           Architecture, ideas, and the spaces between things.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {videos.map((video, index) => (
-            <div key={index} className="reveal cursor-hover" data-stagger-delay={index * 0.1}>
-              <div
-                className="flex items-center justify-center cursor-pointer transition-opacity duration-200 hover:opacity-70"
-                style={{
-                  background: '#1A1A1A',
-                  aspectRatio: '16/9',
-                  marginBottom: '12px'
-                }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
+          {contentPieces.map((piece, index) => {
+            const isImageUrl = piece.thumbnail && (piece.thumbnail.startsWith('http://') || piece.thumbnail.startsWith('https://'));
+            
+            return (
+              <a
+                key={piece.id}
+                href={piece.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reveal cursor-hover block group"
+                data-stagger-delay={index * 0.1}
+                style={{ textDecoration: 'none' }}
               >
                 <div
                   style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '50%',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
+                    position: 'relative',
+                    aspectRatio: '16/9',
+                    background: '#1A1A1A',
+                    overflow: 'hidden',
+                    marginBottom: '12px'
                   }}
                 >
+                  {isImageUrl ? (
+                    <img
+                      src={piece.thumbnail}
+                      alt={piece.title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontFamily: 'Arial, sans-serif',
+                        fontSize: '13px',
+                        color: '#E8E5DE',
+                        opacity: 0.3,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.14em'
+                      }}
+                    >
+                      {piece.platform}
+                    </div>
+                  )}
                   <div
+                    className="transition-opacity duration-200"
                     style={{
-                      width: 0,
-                      height: 0,
-                      borderLeft: '12px solid rgba(255, 255, 255, 0.6)',
-                      borderTop: '8px solid transparent',
-                      borderBottom: '8px solid transparent',
-                      marginLeft: '4px'
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'rgba(0, 0, 0, 0.25)',
+                      opacity: 0,
+                      pointerEvents: 'none'
                     }}
+                    onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+                    onMouseLeave={(e) => e.currentTarget.style.opacity = '0'}
                   />
                 </div>
-              </div>
-              <p
-                style={{
-                  fontFamily: "'Instrument Serif', serif",
-                  fontSize: '14px',
-                  color: '#E8E5DE',
-                  opacity: 0.45
-                }}
-              >
-                {video.title}
-              </p>
-            </div>
-          ))}
+                <div style={{ paddingTop: '12px' }}>
+                  <p
+                    style={{
+                      fontFamily: 'Arial, sans-serif',
+                      fontSize: '10px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.16em',
+                      color: '#E8E5DE',
+                      opacity: 0.35,
+                      marginBottom: '8px'
+                    }}
+                  >
+                    {piece.platform}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "'Instrument Serif', serif",
+                      fontSize: '16px',
+                      color: '#E8E5DE',
+                      opacity: 0.85,
+                      lineHeight: 1.4
+                    }}
+                  >
+                    {piece.title}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
         </div>
-        <p
+        <div
           className="reveal"
           style={{
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '11px',
-            color: '#E8E5DE',
-            opacity: 0.4,
-            textAlign: 'center'
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '48px',
+            marginTop: '40px'
           }}
           data-stagger-delay="0.4"
         >
-          Videos from Instagram / YouTube. I will replace these with embed links.
-        </p>
+          <a
+            href="https://www.instagram.com/Yajay9169"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity duration-200 hover:opacity-70"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.14em',
+              color: '#E8E5DE',
+              opacity: 0.3,
+              textDecoration: 'none'
+            }}
+          >
+            More on Instagram ↗
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ajay-yadav-31b335175/?skipRedirect=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity duration-200 hover:opacity-70"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.14em',
+              color: '#E8E5DE',
+              opacity: 0.3,
+              textDecoration: 'none'
+            }}
+          >
+            More on LinkedIn ↗
+          </a>
+        </div>
       </section>
 
       {/* SECTION 10 - CONTACT */}

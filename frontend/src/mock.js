@@ -174,3 +174,34 @@ export const videos = [
   { title: 'The design process', placeholder: 'video-03' },
   { title: 'Computational thinking', placeholder: 'video-04' }
 ];
+
+export const contentPieces = [
+  {
+    id: 1,
+    platform: 'INSTAGRAM',
+    title: 'placeholder title 01',
+    thumbnail: 'placeholder-01',
+    url: 'https://www.instagram.com/reel/DTsg7ktE4Ku/?igsh=MXZ6YzdpdWoxazFuMQ=='
+  },
+  {
+    id: 2,
+    platform: 'INSTAGRAM',
+    title: 'placeholder title 02',
+    thumbnail: 'placeholder-02',
+    url: 'https://www.instagram.com/reel/DPVb_Rhk_c-/?igsh=MWd4OTFleTgzNnBpdg=='
+  },
+  {
+    id: 3,
+    platform: 'LINKEDIN',
+    title: 'India has 145,000 registered architects',
+    thumbnail: 'placeholder-03',
+    url: 'https://www.linkedin.com/posts/ajay-yadav-31b335175_india-has-145000-registered-architects-share-7454083129188929536-fJI8?utm_source=share&utm_medium=member_desktop&rcm=ACoAACmEiocBrDW8I94jKPp2j4P9cLgIfjFZKIY'
+  },
+  {
+    id: 4,
+    platform: 'LINKEDIN',
+    title: 'When Math Creates Magic — The Louvre Abu Dhabi Dome',
+    thumbnail: 'placeholder-04',
+    url: 'https://www.linkedin.com/pulse/when-math-creates-magic-story-louvre-abu-dhabis-dome-ajay-yadav-9awoc'
+  }
+];
