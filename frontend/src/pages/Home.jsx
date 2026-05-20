@@ -95,63 +95,100 @@ const Home = () => {
 
   return (
     <div style={{ background: '#0E0E0E', minHeight: '100vh', paddingTop: '60px' }}>
-      {/* SECTION 01 - HERO */}
+      {/* SECTION 01 - ENTRY */}
       <section
+        className="relative"
         style={{
-          paddingTop: '10vh',
-          paddingBottom: '8vh'
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'flex-end'
         }}
       >
-        {/* Name and tagline */}
-        <div className="px-8 md:px-16 mb-16">
-          <h1
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 1
+          }}
+        >
+          <source src="https://res.cloudinary.com/diqanluvu/video/upload/v1778997587/Landscape_4k_1_rm5vul.mp4" type="video/mp4" />
+        </video>
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0, 0, 0, 0.6)',
+            zIndex: 2
+          }}
+        />
+        <div
+          className="relative z-10 px-8 md:px-16 pb-16"
+          style={{ zIndex: 3 }}
+        >
+          <p
+            className="hero-reveal hero-reveal-1"
             style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontSize: 'clamp(48px, 10vw, 140px)',
-              lineHeight: 1,
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '13px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.2em',
               color: '#E8E5DE',
-              fontWeight: 400,
-              marginBottom: '24px'
+              opacity: 0.4,
+              marginBottom: '16px'
             }}
           >
             Ajay Yadav
-          </h1>
-          <p
+          </p>
+          <h1
             style={{
               fontFamily: "'Instrument Serif', serif",
-              fontSize: 'clamp(16px, 2.5vw, 22px)',
+              fontSize: 'clamp(32px, 6vw, 44px)',
+              lineHeight: 1.1,
+              color: '#E8E5DE',
+              fontWeight: 400,
+              marginBottom: '20px'
+            }}
+          >
+            <span className="hero-reveal hero-reveal-2" style={{ display: 'block' }}>Architect.</span>
+            <span className="hero-reveal hero-reveal-3" style={{ display: 'block' }}>Computational designer.</span>
+          </h1>
+          <p
+            className="hero-reveal hero-reveal-4"
+            style={{
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: '21px',
               fontStyle: 'italic',
               color: '#E8E5DE',
               opacity: 0.45
             }}
           >
-            Architect · Computational Designer · Delhi
+            Ideas that finish as objects.
           </p>
         </div>
-
-        {/* Video strip - 3:1 aspect ratio */}
         <div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
           style={{
-            width: '100%',
-            aspectRatio: '3/1',
-            background: '#111111',
-            overflow: 'hidden'
+            fontFamily: 'Arial, sans-serif',
+            fontSize: '10px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            color: '#E8E5DE',
+            opacity: 0.4,
+            animation: 'pulse 2s infinite'
           }}
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-          >
-            <source src="https://res.cloudinary.com/diqanluvu/video/upload/v1778997587/Landscape_4k_1_rm5vul.mp4" type="video/mp4" />
-          </video>
+          scroll
         </div>
       </section>
 
