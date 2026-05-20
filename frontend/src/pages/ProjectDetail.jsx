@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { projects } from '../mock';
+import Footer from '../components/Footer';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -296,6 +297,8 @@ const ProjectDetail = () => {
           </button>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

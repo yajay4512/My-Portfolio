@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { projects, studios, processSteps, videos } from '../mock';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -1039,21 +1040,9 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="text-center pt-20 reveal" data-stagger-delay="0.5">
-          <p
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: '11px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.14em',
-              color: '#E8E5DE',
-              opacity: 0.4
-            }}
-          >
-            ajay.design
-          </p>
-        </div>
       </section>
+
+      <Footer />
 
       <style jsx="true">{`
         @keyframes pulse {

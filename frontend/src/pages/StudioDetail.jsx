@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { studios } from '../mock';
 import Lightbox from '../components/Lightbox';
+import Footer from '../components/Footer';
 
 const StudioDetail = () => {
   const { id } = useParams();
@@ -161,6 +162,8 @@ const StudioDetail = () => {
           onNavigate={(newIndex) => setCurrentLightboxIndex(newIndex)}
         />
       )}
+
+      <Footer />
     </div>
   );
 };
