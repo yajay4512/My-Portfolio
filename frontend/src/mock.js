@@ -14,9 +14,9 @@ export const projects = [
     selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778848115/Line_slected_works_pemokg.jpg',
     images: [
       'https://res.cloudinary.com/diqanluvu/image/upload/v1778935197/lINE_GRID_01_tpdulu.jpg',
-      'line-chair-02.jpg',
-      'line-chair-03.jpg',
-      'line-chair-04.jpg'
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1779251717/Line_GRID_02_tn6abg.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1779122942/Line_02_bnugnj.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1779122943/Line_03_pjipny.jpg'
     ]
   },
   {
