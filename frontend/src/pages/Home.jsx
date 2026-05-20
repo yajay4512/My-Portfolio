@@ -101,7 +101,9 @@ const Home = () => {
         style={{
           height: '100vh',
           display: 'flex',
-          alignItems: 'flex-end'
+          alignItems: 'flex-end',
+          aspectRatio: '3/1',
+          overflow: 'hidden'
         }}
       >
         <video
@@ -156,25 +158,12 @@ const Home = () => {
               fontSize: 'clamp(32px, 6vw, 44px)',
               lineHeight: 1.1,
               color: '#E8E5DE',
-              fontWeight: 400,
-              marginBottom: '20px'
+              fontWeight: 400
             }}
           >
             <span className="hero-reveal hero-reveal-2" style={{ display: 'block' }}>Architect.</span>
             <span className="hero-reveal hero-reveal-3" style={{ display: 'block' }}>Computational designer.</span>
           </h1>
-          <p
-            className="hero-reveal hero-reveal-4"
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontSize: '21px',
-              fontStyle: 'italic',
-              color: '#E8E5DE',
-              opacity: 0.45
-            }}
-          >
-            Ideas that finish as objects.
-          </p>
         </div>
         <div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
