@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { projects, studios, processSteps, videos, contentPieces } from '../mock';
+import { projects, studios, videos, contentPieces } from '../mock';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -456,79 +456,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 04 - PROCESS */}
-      <section className="px-8 md:px-16 py-24 md:py-32">
-        <p
-          className="reveal section-label-reveal"
-          style={{
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '10px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.18em',
-            color: '#E8E5DE',
-            opacity: 0.4,
-            marginBottom: '24px'
-          }}
-        >
-          Process
-        </p>
-        <p
-          className="reveal"
-          style={{
-            fontFamily: "'Instrument Serif', serif",
-            fontSize: '19px',
-            fontStyle: 'italic',
-            color: '#E8E5DE',
-            opacity: 0.45,
-            maxWidth: '520px',
-            marginBottom: '64px'
-          }}
-          data-stagger-delay="0.1"
-        >
-          Every project starts as a rule set. The geometry follows from the logic. The object follows from the geometry.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ borderLeft: '0.5px solid rgba(255, 255, 255, 0.08)' }}>
-          {processSteps.map((step, index) => (
-            <div key={step.number} className="px-6 py-8 reveal" style={{ borderRight: '0.5px solid rgba(255, 255, 255, 0.08)' }} data-stagger-delay={index * 0.15}>
-              <p
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: '11px',
-                  color: '#E8E5DE',
-                  opacity: 0.4,
-                  marginBottom: '12px'
-                }}
-              >
-                {step.number}
-              </p>
-              <h3
-                style={{
-                  fontFamily: "'Instrument Serif', serif",
-                  fontSize: '20px',
-                  color: '#E8E5DE',
-                  marginBottom: '16px',
-                  fontWeight: 400
-                }}
-              >
-                {step.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "'Instrument Serif', serif",
-                  fontSize: '14px',
-                  color: '#E8E5DE',
-                  opacity: 0.45,
-                  lineHeight: 1.6,
-                  marginBottom: '24px'
-                }}
-              >
-                {step.description}
-              </p>
-              <ImagePlaceholder filename={step.image} aspectRatio="4/3" />
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* SECTION 05 - THE PAUSE (Replacing "The Door") */}
       <section className="px-8 md:px-16" style={{ padding: '200px 48px' }}>
@@ -1117,7 +1044,7 @@ const Home = () => {
               }}
             >
               <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
-              Portfolio PDF on request
+              <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a>
             </p>
           </div>
         </div>
