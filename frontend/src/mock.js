@@ -61,7 +61,7 @@ export const projects = [
     description: 'A 1200 sq.ft apartment interior in South Delhi. The design emphasizes material honesty and spatial continuity. Custom joinery and built-in storage throughout.',
     tools: 'Revit · Lumion · Photoshop · InDesign',
     location: 'New Delhi',
-    heroImage: 'mortar-house-hero.jpg',
+    heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779365050/Mortar_Hero_hyc4nb.jpg',
     images: ['mortar-house-01.jpg', 'mortar-house-02.jpg', 'mortar-house-03.jpg']
   },
   {
