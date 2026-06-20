@@ -124,7 +124,7 @@ export const studios = [
   {
     name: '7day3io',
     years: '2019 – 2022',
-    description: 'Freelance computational design studio with two batchmates. 100+ projects — product visualisation, residential design, event fabrication, UAE clients.',
+    description: 'A 3D studio that did a bit of everything- 3D visualisation, residential design, Product design, venue design.',
     intro: 'A freelance computational design studio run with two batchmates from NIT Hamirpur. 2019 to 2022. Over a hundred projects — residential design, product visualisation, event fabrication, clients across India and UAE. This is where the work began.',
     images: ['7day3io-01.jpg', '7day3io-02.jpg', '7day3io-03.jpg'],
     galleryImages: [
@@ -138,13 +138,13 @@ export const studios = [
   {
     name: 'Grull.Work',
     years: '2022 – 2024',
-    description: 'Creative execution studio. CGI video, 3D animation, and VFX production for large brands and agencies.',
+    description: 'Freelancing was broken - high commissions, slow payments, unfair dispute resolution. Grull was the fix: a marketplace built around fairer terms for freelancers and businesses both.',
     images: ['grull-work-01.jpg', 'grull-work-02.jpg', 'grull-work-03.jpg']
   },
   {
     name: 'Grull.Design',
     years: '2024',
-    description: 'CGI and design direction. Computational design meets creative production.',
+    description: 'CGI and design work for brands, built for marketing campaigns — ads, social content, product visualisation.',
     images: ['grull-design-01.jpg', 'grull-design-02.jpg', 'grull-design-03.jpg']
   }
 ];
