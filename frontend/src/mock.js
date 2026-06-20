@@ -55,6 +55,7 @@ export const projects = [
     id: 4,
     number: '04',
     name: 'Mortar House',
+    shortName: 'Mortar House',
     type: 'Interior · Built',
     year: '2024',
     practice: 'Logic Design + Build',
@@ -62,6 +63,7 @@ export const projects = [
     tools: 'Revit · Lumion · Photoshop · InDesign',
     location: 'New Delhi',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779365050/Mortar_Hero_hyc4nb.jpg',
+    selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779376463/Mortar_house_cover_cuc22a.jpg',
     images: ['mortar-house-01.jpg', 'mortar-house-02.jpg', 'mortar-house-03.jpg']
   },
   {
