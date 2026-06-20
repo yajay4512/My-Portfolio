@@ -524,7 +524,7 @@ const Home = () => {
           }}
           data-stagger-delay="0.1"
         >
-          Before the job titles. A studio, a startup, a creative practice — sometimes all three at once.
+          Other things I built along the way.
         </p>
       </section>
 
@@ -639,16 +639,13 @@ const Home = () => {
               }}
             >
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0">
-                I grew up in Lucknow and studied architecture at NIT Hamirpur — five years of building things, breaking definitions, and learning that the distance between an idea and a built object is almost always shorter than people think.
+                I grew up in Lucknow and studied architecture at NIT Hamirpur, 2018 to 2023. In my second year I started a freelance studio with two batchmates — 7day3io. It ran from 2019 to 2022, over a hundred projects, mostly 3D visualisation and design work for clients across the globe.
               </p>
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.15">
-                During college I ran a freelance studio with two batchmates. We called it 7day3io. It lasted three years and produced more than a hundred projects. I learned how to work fast, talk to clients, and deliver things that got built.
+                After 7day3io I spent about a year trying something different: a creative studio, a freelancing marketplace, a CGI practice, all under Grull. It didn't run long, but it taught me a lot about building something from nothing.
               </p>
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.3">
-                After graduating I tried building something from scratch — a creative studio, a marketplace, a CGI practice. Some of it worked. All of it taught me something. The thread through all of it was the same: I want to understand how something works, then make it.
-              </p>
-              <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.45">
-                Right now I'm a computational designer at a facade practice in Delhi. The work is technical and I like it. But I'm building toward something more: a practice in Europe or the UAE where computation is a design position, not a production step.
+                From mid-2024 I worked as an architect on built projects — interiors, furniture, a couple of residential buildings. Since the end of 2025 I've been working as a computational designer at a facade practice in Gurugram.
               </p>
               <p
                 className="reveal"
@@ -658,9 +655,9 @@ const Home = () => {
                   marginTop: '32px',
                   fontSize: '17px'
                 }}
-                data-stagger-delay="0.6"
+                data-stagger-delay="0.45"
               >
-                Outside the work I read widely — philosophy, evolutionary psychology, the long history of how humans became what we are. It shapes how I see problems. I don't separate the thinking from the making.
+                Outside of work I read widely — philosophy, evolutionary psychology. Watch movies and play sports every now and then.
               </p>
             </div>
           </div>
@@ -714,7 +711,7 @@ const Home = () => {
                 }}
               >
                 Computational Designer<br />
-                Facade practice, New Delhi<br />
+                Facade practice, Gurugram<br />
                 Dec 2025 – present
               </p>
             </div>
