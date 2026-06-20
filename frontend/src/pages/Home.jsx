@@ -524,7 +524,7 @@ const Home = () => {
           }}
           data-stagger-delay="0.1"
         >
-          Other things I built along the way.
+          Before the job titles. A studio, a startup, a creative practice — sometimes all three at once.
         </p>
       </section>
 
@@ -627,7 +627,7 @@ const Home = () => {
         >
           About
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <div
               style={{
@@ -639,13 +639,16 @@ const Home = () => {
               }}
             >
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0">
-                I grew up in Lucknow and studied architecture at NIT Hamirpur, 2018 to 2023. In my second year I started a freelance studio with two batchmates — 7day3io. It ran from 2019 to 2022, over a hundred projects, mostly 3D visualisation and design work for clients across the globe.
+                I grew up in Lucknow and studied architecture at NIT Hamirpur — five years of building things, breaking definitions, and learning that the distance between an idea and a built object is almost always shorter than people think.
               </p>
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.15">
-                After 7day3io I spent about a year trying something different: a creative studio, a freelancing marketplace, a CGI practice, all under Grull. It didn't run long, but it taught me a lot about building something from nothing.
+                During college I ran a freelance studio with two batchmates. We called it 7day3io. It lasted three years and produced more than a hundred projects. I learned how to work fast, talk to clients, and deliver things that got built.
               </p>
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.3">
-                From mid-2024 I worked as an architect on built projects — interiors, furniture, a couple of residential buildings. Since the end of 2025 I've been working as a computational designer at a facade practice in Gurugram.
+                After graduating I tried building something from scratch — a creative studio, a marketplace, a CGI practice. Some of it worked. All of it taught me something. The thread through all of it was the same: I want to understand how something works, then make it.
+              </p>
+              <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.45">
+                Right now I'm a computational designer at a facade practice in Delhi. The work is technical and I like it. But I'm building toward something more: a practice in Europe or the UAE where computation is a design position, not a production step.
               </p>
               <p
                 className="reveal"
@@ -655,149 +658,121 @@ const Home = () => {
                   marginTop: '32px',
                   fontSize: '17px'
                 }}
-                data-stagger-delay="0.45"
+                data-stagger-delay="0.6"
               >
-                Outside of work I read widely — philosophy, evolutionary psychology. Watch movies and play sports every now and then.
+                Outside the work I read widely — philosophy, evolutionary psychology, the long history of how humans became what we are. It shapes how I see problems. I don't separate the thinking from the making.
               </p>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: '48px' }}>
-            {/* Personal Photo */}
-            <div className="reveal" style={{ width: '200px', flexShrink: 0 }}>
-              <div
+          <div>
+            <div className="reveal" style={{ marginBottom: '40px' }}>
+              <p
                 style={{
-                  width: '100%',
-                  aspectRatio: '9/16',
-                  background: '#1A1A1A',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.16em',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  marginBottom: '12px'
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontSize: '13px',
-                    color: '#E8E5DE',
-                    opacity: 0.3,
-                    textAlign: 'center'
-                  }}
-                >
-                  Personal<br />Photo
-                </span>
+                Education
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontSize: '15px',
+                  color: '#E8E5DE',
+                  lineHeight: 1.6
+                }}
+              >
+                B.Arch — NIT Hamirpur<br />
+                2018 – 2023
+              </p>
+            </div>
+            <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.1">
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.16em',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  marginBottom: '12px'
+                }}
+              >
+                Currently
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontSize: '15px',
+                  color: '#E8E5DE',
+                  lineHeight: 1.6
+                }}
+              >
+                Computational Designer<br />
+                Facade practice, New Delhi<br />
+                Dec 2025 – present
+              </p>
+            </div>
+            <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.2">
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.16em',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  marginBottom: '12px'
+                }}
+              >
+                Tools
+              </p>
+              <div class="about-info-text" style={{ fontFamily: "'Instrument Serif', serif", fontSize: '14px', color: '#E8E5DE', lineHeight: 1.8 }}>
+                <p style={{ marginBottom: '12px', opacity: 0.7 }}>
+                  <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Computational:</span><br />
+                  Rhinoceros 3D · Grasshopper · GHPython<br />
+                  Lunchbox · Kangaroo · Weaverbird
+                </p>
+                <p style={{ marginBottom: '12px', opacity: 0.7 }}>
+                  <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Fabrication:</span><br />
+                  BSolid CNC · V-Ray · Revit · Lumion
+                </p>
+                <p style={{ opacity: 0.7 }}>
+                  <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Visual:</span><br />
+                  Photoshop · InDesign · Premiere Pro
+                </p>
               </div>
             </div>
-            {/* Info Column */}
-            <div style={{ minWidth: '280px' }}>
-              <div className="reveal" style={{ marginBottom: '40px' }}>
-                <p
-                  style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontSize: '10px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.16em',
-                    color: '#E8E5DE',
-                    opacity: 0.4,
-                    marginBottom: '12px'
-                  }}
-                >
-                  Education
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'Instrument Serif', serif",
-                    fontSize: '15px',
-                    color: '#E8E5DE',
-                    lineHeight: 1.6
-                  }}
-                >
-                  B.Arch — NIT Hamirpur<br />
-                  2018 – 2023
-                </p>
-              </div>
-              <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.1">
-                <p
-                  style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontSize: '10px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.16em',
-                    color: '#E8E5DE',
-                    opacity: 0.4,
-                    marginBottom: '12px'
-                  }}
-                >
-                  Currently
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'Instrument Serif', serif",
-                    fontSize: '15px',
-                    color: '#E8E5DE',
-                    lineHeight: 1.6
-                  }}
-                >
-                  Computational Designer<br />
-                  Facade practice, Gurugram<br />
-                  End 2025 – present
-                </p>
-              </div>
-              <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.2">
-                <p
-                  style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontSize: '10px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.16em',
-                    color: '#E8E5DE',
-                    opacity: 0.4,
-                    marginBottom: '12px'
-                  }}
-                >
-                  Tools
-                </p>
-                <div class="about-info-text" style={{ fontFamily: "'Instrument Serif', serif", fontSize: '14px', color: '#E8E5DE', lineHeight: 1.8 }}>
-                  <p style={{ marginBottom: '12px', opacity: 0.7 }}>
-                    <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Computational:</span><br />
-                    Rhinoceros 3D · Grasshopper · GHPython<br />
-                    Lunchbox · Kangaroo · Weaverbird
-                  </p>
-                  <p style={{ marginBottom: '12px', opacity: 0.7 }}>
-                    <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Fabrication:</span><br />
-                    BSolid CNC · V-Ray · Revit · Lumion
-                  </p>
-                  <p style={{ opacity: 0.7 }}>
-                    <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Visual:</span><br />
-                    Photoshop · InDesign · Premiere Pro
-                  </p>
-                </div>
-              </div>
-              <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.3">
-                <p
-                  style={{
-                    fontFamily: 'Arial, sans-serif',
-                    fontSize: '10px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.16em',
-                    color: '#E8E5DE',
-                    opacity: 0.4,
-                    marginBottom: '12px'
-                  }}
-                >
-                  Elsewhere
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'Instrument Serif', serif",
-                    fontSize: '15px',
-                    color: '#E8E5DE',
-                    lineHeight: 1.6
-                  }}
-                >
-                  <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
-                  <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a>
-                </p>
-              </div>
+            <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.3">
+              <p
+                style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.16em',
+                  color: '#E8E5DE',
+                  opacity: 0.4,
+                  marginBottom: '12px'
+                }}
+              >
+                Elsewhere
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontSize: '15px',
+                  color: '#E8E5DE',
+                  lineHeight: 1.6
+                }}
+              >
+                <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
+                <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a>
+              </p>
             </div>
           </div>
         </div>
