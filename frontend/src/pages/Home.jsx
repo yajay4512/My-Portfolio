@@ -627,7 +627,7 @@ const Home = () => {
         >
           About
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <div
               style={{
@@ -771,20 +771,6 @@ const Home = () => {
                 <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a>
               </p>
             </div>
-          </div>
-          {/* Personal Photo */}
-          <div className="reveal" style={{ alignSelf: 'start' }}>
-            <img
-              src="https://res.cloudinary.com/diqanluvu/image/upload/v1781989828/vlcsnap-2026-06-21-02h34m03s682_cccaeq.png"
-              alt="Ajay Yadav"
-              style={{
-                width: '240px',
-                height: 'auto',
-                objectFit: 'cover',
-                borderRadius: '10px',
-                display: 'block'
-              }}
-            />
           </div>
         </div>
       </section>
