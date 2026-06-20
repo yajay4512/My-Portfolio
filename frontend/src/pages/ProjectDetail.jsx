@@ -241,7 +241,7 @@ const ProjectDetail = () => {
         {/* Standard image grid for all projects */}
         {project.images && !project.imageSequence && (
           <div className="mb-24 px-8 md:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {project.images.map((image, index) => (
                 <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
               ))}

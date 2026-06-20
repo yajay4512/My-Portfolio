@@ -65,7 +65,7 @@ export const projects = [
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779365050/Mortar_Hero_hyc4nb.jpg',
     selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1781990531/Mortar_house_cover_01_g4sjxq.jpg',
     images: ['https://res.cloudinary.com/diqanluvu/image/upload/v1781991042/Mortar_house_grid_1_ulwjk8.jpg', 'mortar-house-02.jpg', 'mortar-house-03.jpg', 'mortar-house-04.jpg'],
-    wideImages: ['mortar-house-wide-01.jpg', 'mortar-house-wide-02.jpg']
+    wideImages: ['mortar-house-wide-01.jpg']
   },
   {
     id: 5,
