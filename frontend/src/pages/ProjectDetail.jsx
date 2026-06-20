@@ -249,6 +249,17 @@ const ProjectDetail = () => {
           </div>
         )}
 
+        {/* Wide images section (8:3 aspect ratio) */}
+        {project.wideImages && (
+          <div className="mb-24 px-8 md:px-16">
+            <div className="flex flex-col gap-4">
+              {project.wideImages.map((image, index) => (
+                <ProjectImage key={index} src={image} aspectRatio="8/3" alt={`${project.name} wide view ${index + 1}`} />
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Full width image if exists */}
         {project.fullWidthImage && (
           <div className="mb-16">
