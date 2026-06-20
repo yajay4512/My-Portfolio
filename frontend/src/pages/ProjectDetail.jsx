@@ -240,7 +240,7 @@ const ProjectDetail = () => {
 
         {/* Standard image grid for all projects */}
         {project.images && !project.imageSequence && (
-          <div className="mb-24 px-8 md:px-16">
+          <div className="mb-8 px-8 md:px-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {project.images.map((image, index) => (
                 <ProjectImage key={index} src={image} aspectRatio="4/3" alt={`${project.name} detail ${index + 1}`} />
@@ -249,12 +249,12 @@ const ProjectDetail = () => {
           </div>
         )}
 
-        {/* Wide images section (8:3 aspect ratio) */}
+        {/* Wide images section (custom aspect ratio for floor plans) */}
         {project.wideImages && (
           <div className="mb-24 px-8 md:px-16">
             <div className="flex flex-col gap-4">
               {project.wideImages.map((image, index) => (
-                <ProjectImage key={index} src={image} aspectRatio="8/3" alt={`${project.name} wide view ${index + 1}`} />
+                <ProjectImage key={index} src={image} aspectRatio="3200/2147" alt={`${project.name} floor plan ${index + 1}`} />
               ))}
             </div>
           </div>
