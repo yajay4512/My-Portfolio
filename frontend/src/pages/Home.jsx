@@ -337,7 +337,7 @@ const Home = () => {
           >
             <div style={{ position: 'relative' }}>
               <img
-                src="https://res.cloudinary.com/diqanluvu/image/upload/v1779376463/Mortar_house_cover_cuc22a.jpg"
+                src="https://res.cloudinary.com/diqanluvu/image/upload/v1781990531/Mortar_house_cover_01_g4sjxq.jpg"
                 alt="Mortar House"
                 style={{
                   width: '100%',

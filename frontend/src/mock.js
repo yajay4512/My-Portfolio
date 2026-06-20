@@ -63,8 +63,8 @@ export const projects = [
     tools: 'Revit · Lumion · Photoshop · InDesign',
     location: 'New Delhi',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779365050/Mortar_Hero_hyc4nb.jpg',
-    selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779376463/Mortar_house_cover_cuc22a.jpg',
-    images: ['mortar-house-01.jpg', 'mortar-house-02.jpg', 'mortar-house-03.jpg']
+    selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1781990531/Mortar_house_cover_01_g4sjxq.jpg',
+    images: ['https://res.cloudinary.com/diqanluvu/image/upload/v1781991042/Mortar_house_grid_1_ulwjk8.jpg', 'mortar-house-02.jpg', 'mortar-house-03.jpg']
   },
   {
     id: 5,
