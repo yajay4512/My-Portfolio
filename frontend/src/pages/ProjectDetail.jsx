@@ -114,25 +114,14 @@ const ProjectDetail = () => {
           >
             {project.name}
           </h1>
-          <p
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontSize: '20px',
-              fontStyle: 'italic',
-              color: '#E8E5DE',
-              opacity: 0.45,
-              marginBottom: '24px'
-            }}
-          >
-            {project.type}
-          </p>
           <div
             className="flex flex-wrap gap-4"
             style={{
               fontFamily: 'Arial, sans-serif',
               fontSize: '13px',
               color: '#E8E5DE',
-              opacity: 0.4
+              opacity: 0.4,
+              marginTop: '16px'
             }}
           >
             <span>{project.year}</span>
@@ -266,29 +255,6 @@ const ProjectDetail = () => {
             <ProjectImage src={project.fullWidthImage} aspectRatio="16/9" alt={`${project.name} full view`} />
           </div>
         )}
-
-        {/* Tools */}
-        <div className="max-w-3xl mx-auto mb-32 px-8 md:px-16">
-          <p
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: '11px',
-              color: '#E8E5DE',
-              opacity: 0.4
-            }}
-          >
-            Tools —{' '}
-            <span
-              style={{
-                fontFamily: "'Instrument Serif', serif",
-                fontStyle: 'italic',
-                opacity: 0.6
-              }}
-            >
-              {project.tools}
-            </span>
-          </p>
-        </div>
 
         {/* Next project */}
         <div className="flex justify-end pb-32 px-8 md:px-16">
