@@ -90,6 +90,28 @@ const StudioDetail = () => {
           </div>
         )}
 
+        {/* Wide image (8:3 aspect ratio - 3200x1200) */}
+        {studio.wideImage && (
+          <div className="mb-4 px-8 md:px-16">
+            <div
+              style={{
+                width: '100%',
+                aspectRatio: '8/3',
+                background: '#1A1A1A',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '13px',
+                color: '#E8E5DE',
+                opacity: 0.3
+              }}
+            >
+              {studio.wideImage}
+            </div>
+          </div>
+        )}
+
         {/* Gallery grid */}
         {studio.galleryImages && (
           <div className="mb-24 px-8 md:px-16">

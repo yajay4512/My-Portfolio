@@ -128,6 +128,7 @@ export const studios = [
     description: 'A 3D studio that did a bit of everything- 3D visualisation, residential design, Product design, venue design.',
     intro: 'A freelance computational design studio run with two batchmates from NIT Hamirpur. 2019 to 2022. Over a hundred projects — residential design, product visualisation, event fabrication, clients across India and UAE. This is where the work began.',
     images: ['7day3io-01.jpg', '7day3io-02.jpg', '7day3io-03.jpg'],
+    wideImage: '7day3io-wide-01.jpg',
     galleryImages: [
       'placeholder-01', 'placeholder-02', 'placeholder-03', 'placeholder-04',
       'placeholder-05', 'placeholder-06', 'placeholder-07', 'placeholder-08',
