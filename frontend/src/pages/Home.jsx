@@ -139,7 +139,7 @@ const Home = () => {
             zIndex: 1
           }}
         >
-          <source src="https://res.cloudinary.com/diqanluvu/video/upload/v1778997587/Landscape_4k_1_rm5vul.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/diqanluvu/video/upload/q_auto/f_auto/v1782054351/Landscape_4k_2_final_hunxwo.mp4" type="video/mp4" />
         </video>
         <div
           style={{
