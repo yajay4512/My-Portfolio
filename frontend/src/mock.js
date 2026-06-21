@@ -130,11 +130,26 @@ export const studios = [
     images: ['7day3io-01.jpg', '7day3io-02.jpg', '7day3io-03.jpg'],
     wideImage: '7day3io-wide-01.jpg',
     galleryImages: [
-      'placeholder-01', 'placeholder-02', 'placeholder-03', 'placeholder-04',
-      'placeholder-05', 'placeholder-06', 'placeholder-07', 'placeholder-08',
-      'placeholder-09', 'placeholder-10', 'placeholder-11', 'placeholder-12',
-      'placeholder-13', 'placeholder-14', 'placeholder-15', 'placeholder-16',
-      'placeholder-17', 'placeholder-18', 'placeholder-19', 'placeholder-20'
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051278/7day3io_0024_Layer_1_lujauy.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051278/7day3io_0022_Layer_3_usjseo.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051278/7day3io_0021_Layer_4_wamxli.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051277/7day3io_0017_Layer_8_t1q6re.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051277/7day3io_0019_Layer_6_p4hdpd.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051277/7day3io_0018_Layer_7_i9pld0.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051277/7day3io_0015_Layer_10_fxvpfw.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051277/7day3io_0016_Layer_9_kpiqxe.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051277/7day3io_0014_Layer_11_mmlrc6.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051277/7day3io_0013_Layer_12_knhinr.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051276/7day3io_0008_Layer_17_phakan.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051276/7day3io_0012_Layer_13_kvgno6.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051276/7day3io_0011_Layer_14_qlaa4b.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051275/7day3io_0005_Layer_20_belyfn.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051275/7day3io_0002_Layer_23_jsqrij.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051275/7day3io_0003_Layer_22_jf2hem.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051274/7day3io_0010_Layer_15_yzmcdq.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051274/7day3io_0000_Cabin_Photo_-_4_ka3d1i.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051274/7day3io_0009_Layer_16_iao26q.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051274/7day3io_0004_Layer_21_db6g6k.jpg'
     ]
   },
   {
