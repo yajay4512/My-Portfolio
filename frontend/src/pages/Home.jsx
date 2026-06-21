@@ -148,7 +148,7 @@ const Home = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'rgba(0, 0, 0, 0.6)',
+            background: 'rgba(0, 0, 0, 0.4)',
             zIndex: 2
           }}
         />
