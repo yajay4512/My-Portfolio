@@ -70,28 +70,48 @@ const Home = () => {
     }
   };
 
-  const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => (
-    <div
-      className={`flex items-center justify-center ${className}`}
-      style={{
-        background: '#1A1A1A',
-        aspectRatio: aspectRatio,
-        width: '100%'
-      }}
-    >
-      <span
+  const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => {
+    const isUrl = filename && (filename.startsWith('http://') || filename.startsWith('https://'));
+    
+    if (isUrl) {
+      return (
+        <img
+          src={filename}
+          alt=""
+          className={className}
+          style={{
+            width: '100%',
+            aspectRatio: aspectRatio,
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        />
+      );
+    }
+    
+    return (
+      <div
+        className={`flex items-center justify-center ${className}`}
         style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '13px',
-          color: '#E8E5DE',
-          opacity: 0.4,
-          letterSpacing: '0.05em'
+          background: '#1A1A1A',
+          aspectRatio: aspectRatio,
+          width: '100%'
         }}
       >
-        {filename}
-      </span>
-    </div>
-  );
+        <span
+          style={{
+            fontFamily: 'Arial, sans-serif',
+            fontSize: '13px',
+            color: '#E8E5DE',
+            opacity: 0.4,
+            letterSpacing: '0.05em'
+          }}
+        >
+          {filename}
+        </span>
+      </div>
+    );
+  };
 
   return (
     <div style={{ background: '#0E0E0E', minHeight: '100vh', paddingTop: '60px' }}>

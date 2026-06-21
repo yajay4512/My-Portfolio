@@ -127,8 +127,12 @@ export const studios = [
     years: '2019 – 2022',
     description: 'A 3D studio that did a bit of everything- 3D visualisation, residential design, Product design, venue design.',
     intro: 'A freelance computational design studio run with two batchmates from NIT Hamirpur. 2019 to 2022. Over a hundred projects — residential design, product visualisation, event fabrication, clients across India and UAE. This is where the work began.',
-    images: ['7day3io-01.jpg', '7day3io-02.jpg', '7day3io-03.jpg'],
-    wideImage: '7day3io-wide-01.jpg',
+    images: [
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1782052754/1cover_2_ukc8is.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1782052755/cover_2_fwg6wa.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1782052756/cover_3_djzo8t.jpg'
+    ],
+    wideImage: 'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782052674/Wide_Un_qix24x.jpg',
     galleryImages: [
       'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051278/7day3io_0024_Layer_1_lujauy.jpg',
       'https://res.cloudinary.com/diqanluvu/image/upload/q_auto/f_auto/v1782051278/7day3io_0022_Layer_3_usjseo.jpg',
