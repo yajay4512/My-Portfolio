@@ -72,6 +72,27 @@ const Home = () => {
 
   const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => {
     const isUrl = filename && (filename.startsWith('http://') || filename.startsWith('https://'));
+    const isVideo = isUrl && (filename.endsWith('.mp4') || filename.endsWith('.webm') || filename.endsWith('.mov'));
+    
+    if (isUrl && isVideo) {
+      return (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className={className}
+          style={{
+            width: '100%',
+            aspectRatio: aspectRatio,
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        >
+          <source src={filename} type="video/mp4" />
+        </video>
+      );
+    }
     
     if (isUrl) {
       return (

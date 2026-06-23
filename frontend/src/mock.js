@@ -167,7 +167,7 @@ export const studios = [
     name: 'Grull.Design',
     years: '2024',
     description: 'CGI and design work for brands, built for marketing campaigns — ads, social content, product visualisation.',
-    images: ['grull-design-01.jpg', 'grull-design-02.jpg', 'grull-design-03.jpg'],
+    images: ['https://res.cloudinary.com/diqanluvu/video/upload/v1782244437/Sportsqvest_d3jgeg.mp4', 'https://res.cloudinary.com/diqanluvu/video/upload/v1782244420/141063_t258hd.mp4', 'https://res.cloudinary.com/diqanluvu/video/upload/v1782244420/141748_pckn1d.mp4'],
     website: 'https://grull.design/'
   }
 ];
