@@ -64,7 +64,7 @@ export const projects = [
     location: 'New Delhi',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779365050/Mortar_Hero_hyc4nb.jpg',
     selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1781990531/Mortar_house_cover_01_g4sjxq.jpg',
-    images: ['https://res.cloudinary.com/diqanluvu/image/upload/v1781991042/Mortar_house_grid_1_ulwjk8.jpg', 'mortar-house-02.jpg', 'mortar-house-03.jpg', 'mortar-house-04.jpg'],
+    images: ['https://res.cloudinary.com/diqanluvu/image/upload/v1781991042/Mortar_house_grid_1_ulwjk8.jpg', 'https://res.cloudinary.com/diqanluvu/image/upload/v1782243166/Mortar_house_grid_2_xdtg0q.jpg', 'https://res.cloudinary.com/diqanluvu/image/upload/v1782243164/Mortar_house_grid_3_jqanjv.jpg', 'https://res.cloudinary.com/diqanluvu/image/upload/v1782243165/Mortar_house_grid_4_powljq.jpg'],
     wideImages: ['https://res.cloudinary.com/diqanluvu/image/upload/v1781997315/FLOOR_PLAN_B_W_pns533.png']
   },
   {
