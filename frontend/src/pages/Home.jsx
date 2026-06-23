@@ -555,18 +555,39 @@ const Home = () => {
             <div key={index} className="reveal" data-stagger-delay={index * 0.2}>
               <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 mb-8">
                 <div>
-                  <h3
-                    style={{
-                      fontFamily: "'Instrument Serif', serif",
-                      fontSize: '34px',
-                      color: '#E8E5DE',
-                      marginBottom: '8px',
-                      fontWeight: 400,
-                      letterSpacing: '-0.02em'
-                    }}
-                  >
-                    {studio.name}
-                  </h3>
+                  {studio.website ? (
+                    <a
+                      href={studio.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-opacity duration-200 hover:opacity-70 cursor-hover"
+                      style={{
+                        fontFamily: "'Instrument Serif', serif",
+                        fontSize: '34px',
+                        color: '#E8E5DE',
+                        marginBottom: '8px',
+                        fontWeight: 400,
+                        letterSpacing: '-0.02em',
+                        textDecoration: 'none',
+                        display: 'block'
+                      }}
+                    >
+                      {studio.name}
+                    </a>
+                  ) : (
+                    <h3
+                      style={{
+                        fontFamily: "'Instrument Serif', serif",
+                        fontSize: '34px',
+                        color: '#E8E5DE',
+                        marginBottom: '8px',
+                        fontWeight: 400,
+                        letterSpacing: '-0.02em'
+                      }}
+                    >
+                      {studio.name}
+                    </h3>
+                  )}
                   <p
                     style={{
                       fontFamily: 'Arial, sans-serif',

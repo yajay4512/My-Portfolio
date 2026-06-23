@@ -160,13 +160,15 @@ export const studios = [
     name: 'Grull.Work',
     years: '2022 – 2024',
     description: 'Freelancing was broken - high commissions, slow payments, unfair dispute resolution. Grull was the fix: a marketplace built around fairer terms for freelancers and businesses both.',
-    images: ['grull-work-01.jpg', 'grull-work-02.jpg', 'grull-work-03.jpg']
+    images: ['grull-work-01.jpg', 'grull-work-02.jpg', 'grull-work-03.jpg'],
+    website: 'https://grull.work/'
   },
   {
     name: 'Grull.Design',
     years: '2024',
     description: 'CGI and design work for brands, built for marketing campaigns — ads, social content, product visualisation.',
-    images: ['grull-design-01.jpg', 'grull-design-02.jpg', 'grull-design-03.jpg']
+    images: ['grull-design-01.jpg', 'grull-design-02.jpg', 'grull-design-03.jpg'],
+    website: 'https://grull.design/'
   }
 ];
 
