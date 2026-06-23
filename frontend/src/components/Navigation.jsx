@@ -106,7 +106,7 @@ const Navigation = () => {
           ) : (
             <Link
               to="/"
-              className="nav-link"
+              className="nav-link cursor-hover"
               style={{
                 fontFamily: 'Arial, sans-serif',
                 fontSize: '11px',

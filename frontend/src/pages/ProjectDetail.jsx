@@ -260,7 +260,7 @@ const ProjectDetail = () => {
         <div className="flex justify-end pb-32 px-8 md:px-16">
           <button
             onClick={() => navigate(`/project/${nextProject.id}`)}
-            className="transition-opacity duration-200 hover:opacity-70"
+            className="transition-opacity duration-200 hover:opacity-70 cursor-hover"
             style={{
               fontFamily: "'Instrument Serif', serif",
               fontSize: '16px',
