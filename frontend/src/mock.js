@@ -202,29 +202,29 @@ export const contentPieces = [
   {
     id: 1,
     platform: 'INSTAGRAM',
-    title: 'placeholder title 01',
-    thumbnail: 'placeholder-01',
+    title: 'Rain of light',
+    thumbnail: 'https://res.cloudinary.com/diqanluvu/image/upload/v1782239898/LOUVRE_INSTA_laafh3.jpg',
     url: 'https://www.instagram.com/reel/DTsg7ktE4Ku/?igsh=MXZ6YzdpdWoxazFuMQ=='
   },
   {
     id: 2,
     platform: 'INSTAGRAM',
-    title: 'placeholder title 02',
-    thumbnail: 'placeholder-02',
+    title: 'Machine for living',
+    thumbnail: 'https://res.cloudinary.com/diqanluvu/image/upload/v1782239902/UNITE_knkxnf.jpg',
     url: 'https://www.instagram.com/reel/DPVb_Rhk_c-/?igsh=MWd4OTFleTgzNnBpdg=='
   },
   {
     id: 3,
     platform: 'LINKEDIN',
     title: 'India has 145,000 registered architects',
-    thumbnail: 'placeholder-03',
+    thumbnail: 'https://res.cloudinary.com/diqanluvu/image/upload/v1782239897/145000_qkfpdm.jpg',
     url: 'https://www.linkedin.com/posts/ajay-yadav-31b335175_india-has-145000-registered-architects-share-7454083129188929536-fJI8?utm_source=share&utm_medium=member_desktop&rcm=ACoAACmEiocBrDW8I94jKPp2j4P9cLgIfjFZKIY'
   },
   {
     id: 4,
     platform: 'LINKEDIN',
     title: 'When Math Creates Magic — The Louvre Abu Dhabi Dome',
-    thumbnail: 'placeholder-04',
+    thumbnail: 'https://res.cloudinary.com/diqanluvu/image/upload/v1782239897/LOUVRE_jjy8iv.jpg',
     url: 'https://www.linkedin.com/pulse/when-math-creates-magic-story-louvre-abu-dhabis-dome-ajay-yadav-9awoc'
   }
 ];
