@@ -1166,11 +1166,11 @@ const Home = () => {
           style={{
             position: 'fixed',
             left: hoverPreview.position.x > window.innerWidth * 0.6 
-              ? hoverPreview.position.x - 304 
+              ? hoverPreview.position.x - 444 
               : hoverPreview.position.x + 24,
             top: hoverPreview.position.y - 180,
-            width: '280px',
-            height: '186.67px',
+            width: '420px',
+            aspectRatio: '3/1',
             zIndex: 9000,
             pointerEvents: 'none',
             opacity: hoverPreview.isVisible ? 0.45 : 0,
