@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { projects, studios, videos, contentPieces } from '../mock';
 import Footer from '../components/Footer';
@@ -6,6 +6,14 @@ import Footer from '../components/Footer';
 const Home = () => {
   const navigate = useNavigate();
   const observerRef = useRef(null);
+  
+  // Hover preview state
+  const [hoverPreview, setHoverPreview] = useState({
+    isVisible: false,
+    currentImage: '',
+    position: { x: 0, y: 0 }
+  });
+  const previewImageRef = useRef(null);
 
   useEffect(() => {
     // Setup Intersection Observer for scroll reveals
@@ -68,6 +76,30 @@ const Home = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  // Hover preview handlers
+  const handleRowMouseEnter = (project) => {
+    const isUrl = project.heroImage && (project.heroImage.startsWith('http://') || project.heroImage.startsWith('https://'));
+    setHoverPreview(prev => ({
+      ...prev,
+      isVisible: true,
+      currentImage: isUrl ? project.heroImage : ''
+    }));
+  };
+
+  const handleRowMouseLeave = () => {
+    setHoverPreview(prev => ({
+      ...prev,
+      isVisible: false
+    }));
+  };
+
+  const handleRowMouseMove = (e) => {
+    setHoverPreview(prev => ({
+      ...prev,
+      position: { x: e.clientX, y: e.clientY }
+    }));
   };
 
   const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => {
@@ -483,6 +515,9 @@ const Home = () => {
             <div
               key={project.id}
               onClick={() => navigate(`/project/${project.id}`)}
+              onMouseEnter={() => handleRowMouseEnter(project)}
+              onMouseLeave={handleRowMouseLeave}
+              onMouseMove={handleRowMouseMove}
               className="grid gap-0 py-6 cursor-pointer cursor-hover transition-opacity duration-200 hover:opacity-60 reveal"
               style={{
                 gridTemplateColumns: '60px 1fr 200px 80px',
@@ -1124,12 +1159,59 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Floating hover preview */}
+      {hoverPreview.isVisible && (
+        <div
+          ref={previewImageRef}
+          style={{
+            position: 'fixed',
+            left: hoverPreview.position.x > window.innerWidth * 0.6 
+              ? hoverPreview.position.x - 304 
+              : hoverPreview.position.x + 24,
+            top: hoverPreview.position.y - 180,
+            width: '280px',
+            height: '186.67px',
+            zIndex: 9000,
+            pointerEvents: 'none',
+            opacity: hoverPreview.isVisible ? 0.45 : 0,
+            transition: `opacity ${hoverPreview.isVisible ? '0.25s' : '0.15s'} ease`,
+            animation: 'floatPreview 3.5s ease-in-out infinite alternate',
+            background: '#111111'
+          }}
+        >
+          {hoverPreview.currentImage ? (
+            <img
+              src={hoverPreview.currentImage}
+              alt=""
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block'
+              }}
+            />
+          ) : (
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                background: '#1A1A1A'
+              }}
+            />
+          )}
+        </div>
+      )}
+
       <Footer />
 
       <style jsx="true">{`
         @keyframes pulse {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.5; }
+        }
+        @keyframes floatPreview {
+          0% { transform: translateY(-4px); }
+          100% { transform: translateY(4px); }
         }
       `}</style>
     </div>
