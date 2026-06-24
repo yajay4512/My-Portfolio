@@ -7,13 +7,13 @@ const Home = () => {
   const navigate = useNavigate();
   const observerRef = useRef(null);
   
-  // Hover preview state
+  // Hover preview state - only for visibility and image src
   const [hoverPreview, setHoverPreview] = useState({
     isVisible: false,
-    currentImage: '',
-    position: { x: 0, y: 0 }
+    currentImage: ''
   });
   const previewImageRef = useRef(null);
+  const rafIdRef = useRef(null);
 
   useEffect(() => {
     // Setup Intersection Observer for scroll reveals
@@ -78,28 +78,48 @@ const Home = () => {
     }
   };
 
-  // Hover preview handlers
+  // Hover preview handlers - optimized for performance
   const handleRowMouseEnter = (project) => {
     const isUrl = project.heroImage && (project.heroImage.startsWith('http://') || project.heroImage.startsWith('https://'));
-    setHoverPreview(prev => ({
-      ...prev,
+    setHoverPreview({
       isVisible: true,
       currentImage: isUrl ? project.heroImage : ''
-    }));
+    });
   };
 
   const handleRowMouseLeave = () => {
-    setHoverPreview(prev => ({
-      ...prev,
-      isVisible: false
-    }));
+    // Cancel any pending animation frame
+    if (rafIdRef.current) {
+      cancelAnimationFrame(rafIdRef.current);
+      rafIdRef.current = null;
+    }
+    setHoverPreview({
+      isVisible: false,
+      currentImage: ''
+    });
   };
 
   const handleRowMouseMove = (e) => {
-    setHoverPreview(prev => ({
-      ...prev,
-      position: { x: e.clientX, y: e.clientY }
-    }));
+    // Cancel previous frame request
+    if (rafIdRef.current) {
+      cancelAnimationFrame(rafIdRef.current);
+    }
+    
+    // Throttle position updates using requestAnimationFrame
+    rafIdRef.current = requestAnimationFrame(() => {
+      if (previewImageRef.current) {
+        const x = e.clientX;
+        const y = e.clientY;
+        const isRightSide = x > window.innerWidth * 0.6;
+        
+        // Calculate position offsets
+        const offsetX = isRightSide ? x - 444 : x + 24;
+        const offsetY = y - 180;
+        
+        // Directly update transform via DOM - no React re-render
+        previewImageRef.current.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      }
+    });
   };
 
   const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => {
@@ -1165,10 +1185,8 @@ const Home = () => {
           ref={previewImageRef}
           style={{
             position: 'fixed',
-            left: hoverPreview.position.x > window.innerWidth * 0.6 
-              ? hoverPreview.position.x - 444 
-              : hoverPreview.position.x + 24,
-            top: hoverPreview.position.y - 180,
+            left: 0,
+            top: 0,
             width: '420px',
             aspectRatio: '3/1',
             zIndex: 9000,
@@ -1176,7 +1194,8 @@ const Home = () => {
             opacity: hoverPreview.isVisible ? 0.45 : 0,
             transition: `opacity ${hoverPreview.isVisible ? '0.25s' : '0.15s'} ease`,
             animation: 'floatPreview 3.5s ease-in-out infinite alternate',
-            background: '#111111'
+            background: '#111111',
+            willChange: 'transform, opacity'
           }}
         >
           {hoverPreview.currentImage ? (
