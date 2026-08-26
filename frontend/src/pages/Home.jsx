@@ -10,6 +10,109 @@ const optimiseCloudinaryUrl = (url) => {
   return url.replace('/upload/', '/upload/q_auto,f_auto,w_800/');
 };
 
+const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => {
+  const isUrl = filename && (filename.startsWith('http://') || filename.startsWith('https://'));
+  const isVideo = isUrl && (filename.endsWith('.mp4') || filename.endsWith('.webm') || filename.endsWith('.mov'));
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (!isVideo || !videoRef.current) return;
+    const el = videoRef.current;
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            el.play().catch(() => {});
+            videoObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    videoObserver.observe(el);
+    return () => videoObserver.disconnect();
+  }, [isVideo]);
+
+  if (isUrl && isVideo) {
+    return (
+      <div
+        className={className}
+        style={{
+          width: '100%',
+          aspectRatio: aspectRatio,
+          background: '#1A1A1A',
+          overflow: 'hidden'
+        }}
+      >
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="none"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        >
+          <source src={filename} type="video/mp4" />
+        </video>
+      </div>
+    );
+  }
+
+  if (isUrl) {
+    return (
+      <div
+        className={className}
+        style={{
+          width: '100%',
+          aspectRatio: aspectRatio,
+          background: '#1A1A1A',
+          overflow: 'hidden'
+        }}
+      >
+        <img
+          src={optimiseCloudinaryUrl(filename)}
+          alt=""
+          loading="lazy"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`flex items-center justify-center ${className}`}
+      style={{
+        background: '#1A1A1A',
+        aspectRatio: aspectRatio,
+        width: '100%'
+      }}
+    >
+      <span
+        style={{
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '13px',
+          color: '#E8E5DE',
+          opacity: 0.4,
+          letterSpacing: '0.05em'
+        }}
+      >
+        {filename}
+      </span>
+    </div>
+  );
+};
+
 const Home = () => {
   const navigate = useNavigate();
   const observerRef = useRef(null);
@@ -127,109 +230,6 @@ const Home = () => {
         previewImageRef.current.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       }
     });
-  };
-
-  const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => {
-    const isUrl = filename && (filename.startsWith('http://') || filename.startsWith('https://'));
-    const isVideo = isUrl && (filename.endsWith('.mp4') || filename.endsWith('.webm') || filename.endsWith('.mov'));
-    const videoRef = useRef(null);
-
-    useEffect(() => {
-      if (!isVideo || !videoRef.current) return;
-      const el = videoRef.current;
-      const videoObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              el.play().catch(() => {});
-              videoObserver.disconnect();
-            }
-          });
-        },
-        { threshold: 0.25 }
-      );
-      videoObserver.observe(el);
-      return () => videoObserver.disconnect();
-    }, [isVideo]);
-
-    if (isUrl && isVideo) {
-      return (
-        <div
-          className={className}
-          style={{
-            width: '100%',
-            aspectRatio: aspectRatio,
-            background: '#1A1A1A',
-            overflow: 'hidden'
-          }}
-        >
-          <video
-            ref={videoRef}
-            muted
-            loop
-            playsInline
-            preload="none"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-          >
-            <source src={filename} type="video/mp4" />
-          </video>
-        </div>
-      );
-    }
-    
-    if (isUrl) {
-      return (
-        <div
-          className={className}
-          style={{
-            width: '100%',
-            aspectRatio: aspectRatio,
-            background: '#1A1A1A',
-            overflow: 'hidden'
-          }}
-        >
-          <img
-            src={optimiseCloudinaryUrl(filename)}
-            alt=""
-            loading="lazy"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-          />
-        </div>
-      );
-    }
-    
-    return (
-      <div
-        className={`flex items-center justify-center ${className}`}
-        style={{
-          background: '#1A1A1A',
-          aspectRatio: aspectRatio,
-          width: '100%'
-        }}
-      >
-        <span
-          style={{
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '13px',
-            color: '#E8E5DE',
-            opacity: 0.4,
-            letterSpacing: '0.05em'
-          }}
-        >
-          {filename}
-        </span>
-      </div>
-    );
   };
 
   return (
@@ -1238,32 +1238,39 @@ const Home = () => {
             zIndex: 9000,
             pointerEvents: 'none',
             opacity: hoverPreview.isVisible ? 0.45 : 0,
-            transition: `opacity ${hoverPreview.isVisible ? '0.25s' : '0.15s'} ease`,
-            animation: 'floatPreview 3.5s ease-in-out infinite alternate',
-            background: '#111111',
-            willChange: 'transform, opacity'
+            transition: `opacity ${hoverPreview.isVisible ? '0.25s' : '0.15s'} ease`
           }}
         >
-          {hoverPreview.currentImage ? (
-            <img
-              src={hoverPreview.currentImage}
-              alt=""
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block'
-              }}
-            />
-          ) : (
-            <div
-              style={{
-                width: '100%',
-                height: '100%',
-                background: '#1A1A1A'
-              }}
-            />
-          )}
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              background: '#111111',
+              willChange: 'transform',
+              animation: 'floatPreview 3.5s ease-in-out infinite alternate'
+            }}
+          >
+            {hoverPreview.currentImage ? (
+              <img
+                src={hoverPreview.currentImage}
+                alt=""
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block'
+                }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: '#1A1A1A'
+                }}
+              />
+            )}
+          </div>
         </div>
       )}
 
