@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { projects, studios, videos, contentPieces } from '../mock';
 import Footer from '../components/Footer';
 
+const optimiseCloudinaryUrl = (url) => {
+  if (!url || !url.startsWith('https://res.cloudinary.com')) return url;
+  if (url.includes('.mp4') || url.includes('.webm') || url.includes('.mov')) return url;
+  if (url.includes('q_auto')) return url; // already optimised
+  return url.replace('/upload/', '/upload/q_auto,f_auto,w_800/');
+};
+
 const Home = () => {
   const navigate = useNavigate();
   const observerRef = useRef(null);
@@ -125,40 +132,79 @@ const Home = () => {
   const ImagePlaceholder = ({ filename, aspectRatio = '16/9', className = '' }) => {
     const isUrl = filename && (filename.startsWith('http://') || filename.startsWith('https://'));
     const isVideo = isUrl && (filename.endsWith('.mp4') || filename.endsWith('.webm') || filename.endsWith('.mov'));
-    
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+      if (!isVideo || !videoRef.current) return;
+      const el = videoRef.current;
+      const videoObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              el.play().catch(() => {});
+              videoObserver.disconnect();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      videoObserver.observe(el);
+      return () => videoObserver.disconnect();
+    }, [isVideo]);
+
     if (isUrl && isVideo) {
       return (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <div
           className={className}
           style={{
             width: '100%',
             aspectRatio: aspectRatio,
-            objectFit: 'cover',
-            display: 'block'
+            background: '#1A1A1A',
+            overflow: 'hidden'
           }}
         >
-          <source src={filename} type="video/mp4" />
-        </video>
+          <video
+            ref={videoRef}
+            muted
+            loop
+            playsInline
+            preload="none"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block'
+            }}
+          >
+            <source src={filename} type="video/mp4" />
+          </video>
+        </div>
       );
     }
     
     if (isUrl) {
       return (
-        <img
-          src={filename}
-          alt=""
+        <div
           className={className}
           style={{
             width: '100%',
             aspectRatio: aspectRatio,
-            objectFit: 'cover',
-            display: 'block'
+            background: '#1A1A1A',
+            overflow: 'hidden'
           }}
-        />
+        >
+          <img
+            src={optimiseCloudinaryUrl(filename)}
+            alt=""
+            loading="lazy"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block'
+            }}
+          />
+        </div>
       );
     }
     
