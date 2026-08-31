@@ -938,6 +938,22 @@ const Home = () => {
         </div>
       </section>
 
+      {/* SECTION 08B - PORTRAIT */}
+      <section className="px-8 md:px-16 py-24 md:py-32">
+        <div className="reveal" style={{ maxWidth: '640px' }}>
+          <img
+            src="https://res.cloudinary.com/diqanluvu/image/upload/v1781989828/vlcsnap-2026-06-21-02h34m03s682_cccaeq.png"
+            alt="Ajay Yadav"
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+              objectFit: 'cover'
+            }}
+          />
+        </div>
+      </section>
+
       {/* SECTION 09 - CONTENT/VIDEOS */}
       <section className="px-8 md:px-16 py-24 md:py-32">
         <p
