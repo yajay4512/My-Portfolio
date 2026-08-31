@@ -790,7 +790,7 @@ const Home = () => {
         >
           About
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <div>
             <div
               style={{
@@ -931,26 +931,22 @@ const Home = () => {
                 }}
               >
                 <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
-                <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a>
+                <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a> | <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download Portfolio</a>
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 08B - PORTRAIT */}
-      <section className="px-8 md:px-16 py-24 md:py-32">
-        <div className="reveal" style={{ maxWidth: '640px' }}>
-          <img
-            src="https://res.cloudinary.com/diqanluvu/image/upload/v1781989828/vlcsnap-2026-06-21-02h34m03s682_cccaeq.png"
-            alt="Ajay Yadav"
-            style={{
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              objectFit: 'cover'
-            }}
-          />
+          <div className="reveal" style={{ height: '100%' }}>
+            <img
+              src="https://res.cloudinary.com/diqanluvu/image/upload/v1781989828/vlcsnap-2026-06-21-02h34m03s682_cccaeq.png"
+              alt="Ajay Yadav"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block'
+              }}
+            />
+          </div>
         </div>
       </section>
 
