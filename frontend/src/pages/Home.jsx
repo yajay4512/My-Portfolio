@@ -967,7 +967,7 @@ const Home = () => {
             }}
           >
             <img
-              src="https://res.cloudinary.com/diqanluvu/image/upload/v1781989828/vlcsnap-2026-06-21-02h34m03s682_cccaeq.png"
+              src="https://res.cloudinary.com/diqanluvu/image/upload/v1788721508/Portrait_01_wjtvw8.jpg"
               alt="Ajay Yadav"
               style={{
                 width: '100%',
