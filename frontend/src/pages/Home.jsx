@@ -125,6 +125,20 @@ const Home = () => {
   const previewImageRef = useRef(null);
   const rafIdRef = useRef(null);
 
+  // About section - photo column height should match facts column (B), not bio column (A)
+  const factsColumnRef = useRef(null);
+  const [photoHeight, setPhotoHeight] = useState(null);
+
+  useEffect(() => {
+    if (!factsColumnRef.current) return;
+    const el = factsColumnRef.current;
+    const updateHeight = () => setPhotoHeight(el.offsetHeight);
+    updateHeight();
+    const resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(el);
+    return () => resizeObserver.disconnect();
+  }, []);
+
   useEffect(() => {
     // Setup Intersection Observer for scroll reveals
     observerRef.current = new IntersectionObserver(
@@ -834,7 +848,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div style={{ height: '100%' }}>
+          <div ref={factsColumnRef} style={{ height: '100%' }}>
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <p
                 style={{
@@ -941,11 +955,17 @@ const Home = () => {
                 }}
               >
                 <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
-                <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a> | <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download Portfolio</a>
+                <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a> | <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Request Portfolio</a>
               </p>
             </div>
           </div>
-          <div className="reveal" style={{ height: '100%' }}>
+          <div
+            className="reveal"
+            style={{
+              height: photoHeight ? `${photoHeight}px` : 'auto',
+              marginLeft: '-40px'
+            }}
+          >
             <img
               src="https://res.cloudinary.com/diqanluvu/image/upload/v1781989828/vlcsnap-2026-06-21-02h34m03s682_cccaeq.png"
               alt="Ajay Yadav"
