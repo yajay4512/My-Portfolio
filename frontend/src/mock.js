@@ -48,8 +48,12 @@ export const projects = [
     description: 'A topographic wall art installation crafted from white oak, translating the distinctive landscape of Laitlum Canyon into three-dimensional relief. The piece captures the canyon layered terrain through precision-cut contour lines, with each elevation carved to mirror the natural topography of this Meghalaya landmark. The wood grain adds organic texture to the geometric patterns, creating depth and visual movement across the surface. Designed specifically for a Guwahati penthouse, this installation brings a piece of the region dramatic geography indoors.',
     tools: 'Rhinoceros 3D · Grasshopper · GHPython · BSolid CNC',
     location: 'Private residence, Gurgaon',
-    heroImage: 'laitlum-hero.jpg',
-    images: ['laitlum-01.jpg', 'laitlum-02.jpg', 'laitlum-03.jpg', 'laitlum-04.jpg']
+    heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1788719828/L_cover_f57fvd.jpg',
+    selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1788719822/L_selected_works_egmvpf.jpg',
+    images: [
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1788719827/L_01_brvp6b.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1788719829/L_02_y1np4f.jpg'
+    ]
   },
   {
     id: 4,
@@ -90,8 +94,12 @@ export const projects = [
     description: 'A thesis project exploring adaptive museum spaces. The building envelope responds to interior program through a computational facade system that modulates light and views.',
     tools: 'Rhinoceros 3D · Grasshopper · Kangaroo · Ladybug · V-Ray',
     location: 'Academic project',
-    heroImage: 'museum-hero.jpg',
-    images: ['museum-01.jpg', 'museum-02.jpg', 'museum-03.jpg', 'museum-04.jpg']
+    heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1788716729/r1_bokufw.jpg',
+    images: [
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1788717308/r2_pi7mc4.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1788717308/r4_riyp4t.jpg'
+    ],
+    wideImages: ['https://res.cloudinary.com/diqanluvu/image/upload/v1788717309/r3_mu77pw.png']
   },
   {
     id: 7,

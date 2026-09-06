@@ -417,11 +417,14 @@ const Home = () => {
             data-stagger-delay="0.1"
           >
             <div style={{ position: 'relative' }}>
-              <div
+              <img
+                src="https://res.cloudinary.com/diqanluvu/image/upload/v1788719822/L_selected_works_egmvpf.jpg"
+                alt="LAITLUM wall art"
                 style={{
+                  width: '100%',
                   aspectRatio: '4/3',
-                  background: '#1A1A1A',
-                  width: '100%'
+                  objectFit: 'cover',
+                  display: 'block'
                 }}
               />
               <div
@@ -748,16 +751,16 @@ const Home = () => {
                     <div className="mt-6">
                       <button
                         onClick={() => navigate(`/studio/${studio.name.toLowerCase()}`)}
-                        className="transition-opacity duration-200 hover:opacity-70 cursor-hover"
+                        className="transition-opacity duration-200 cursor-hover"
                         style={{
                           fontFamily: 'Arial, sans-serif',
                           fontSize: '11px',
                           color: '#E8E5DE',
-                          opacity: 0.4,
                           background: 'none',
                           border: 'none',
                           cursor: 'pointer',
-                          textDecoration: 'none'
+                          textDecoration: 'none',
+                          animation: 'galleryPulse 2s infinite'
                         }}
                       >
                         View full gallery ({studio.galleryImages.length} projects) →
@@ -1300,6 +1303,10 @@ const Home = () => {
         @keyframes pulse {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.5; }
+        }
+        @keyframes galleryPulse {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
         }
         @keyframes floatPreview {
           0% { transform: translateY(-4px); }

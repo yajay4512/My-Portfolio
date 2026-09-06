@@ -243,7 +243,21 @@ const ProjectDetail = () => {
           <div className="mb-24 px-8 md:px-16">
             <div className="flex flex-col gap-4">
               {project.wideImages.map((image, index) => (
-                <ProjectImage key={index} src={image} aspectRatio="3200/2147" alt={`${project.name} floor plan ${index + 1}`} />
+                project.id === 6 ? (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${project.name} detail ${index + 1}`}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      objectFit: 'unset',
+                      display: 'block'
+                    }}
+                  />
+                ) : (
+                  <ProjectImage key={index} src={image} aspectRatio="3200/2147" alt={`${project.name} floor plan ${index + 1}`} />
+                )
               ))}
             </div>
           </div>
