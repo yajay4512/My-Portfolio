@@ -170,7 +170,11 @@ export const studios = [
     name: 'Grull.Work',
     years: '2022 – 2024',
     description: 'Freelancing was broken - high commissions, slow payments, unfair dispute resolution. Grull was the fix: a marketplace built around fairer terms for freelancers and businesses both.',
-    images: ['grull-work-01.jpg', 'grull-work-02.jpg', 'grull-work-03.jpg'],
+    images: [
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1789156660/gruyll.work_1_lt6oar.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1789156660/gruyll.work_2_upw6ah.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1789156660/3gruyll.work_2_o69hfc.jpg'
+    ],
     website: 'https://grull.work/'
   },
   {
