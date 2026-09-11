@@ -243,7 +243,7 @@ const ProjectDetail = () => {
           <div className="mb-24 px-8 md:px-16">
             <div className="flex flex-col gap-4">
               {project.wideImages.map((image, index) => (
-                project.id === 6 ? (
+                project.id === 6 || project.id === 7 ? (
                   <img
                     key={index}
                     src={image}

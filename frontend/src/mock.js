@@ -105,14 +105,16 @@ export const projects = [
     id: 7,
     number: '07',
     name: 'Genius Communitatis',
-    type: 'Architecture · Housing',
-    year: '2024',
-    practice: 'Logic Design + Build',
-    description: 'A residential project on a sloped site in Himachal Pradesh. The design works with the topography, stepping down the hillside. Three volumes connected by glazed circulation.',
+    type: 'Architecture · Community center',
+    year: '2023',
+    description: 'The project sets out to design an inclusive, self-sufficient environment for community development - one that also closes the gap between residents and visitors by giving both groups real reasons to interact. That means programming for a wide spectrum of users rather than a single one: cultural facilities, performance spaces, food courts, and a shopping-cum-exhibition space that doubles as a platform for showcasing work by the local community.',
     tools: 'Revit · Lumion · Photoshop',
-    location: 'Himachal Pradesh',
-    heroImage: 'the-edge-hero.jpg',
-    images: ['the-edge-01.jpg', 'the-edge-02.jpg', 'the-edge-03.jpg']
+    heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1789155659/thesis_sec_website_z5wviq.jpg',
+    images: [
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1789155659/Thesis_grid_01_nffcws.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1789155659/Thesis_grid_02_zhazb7.jpg'
+    ],
+    wideImages: ['https://res.cloudinary.com/diqanluvu/image/upload/v1789156120/Thesis_study_s0qvy1.jpg']
   },
   {
     id: 8,
