@@ -826,13 +826,13 @@ const Home = () => {
               }}
             >
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0">
-                I grew up in Lucknow and studied architecture at NIT Hamirpur, 2018 to 2023. In my second year I started a freelance studio with two batchmates — 7day3io. It ran from 2019 to 2022, over a hundred projects, mostly 3D visualisation and design work for clients across the globe.
+                I grew up in Lucknow and studied architecture at NIT Hamirpur, 2018 to 2023. In my second year I started a freelance studio with two batchmates — 7day3io. A hundred-odd projects over three years, mostly 3D visualisation and parametric modelling for small firms and individual clients.
               </p>
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.15">
-                After 7day3io I spent about a year trying something different: a creative studio, a freelancing marketplace, a CGI practice, all under Grull. It didn't run long, but it taught me a lot about building something from nothing.
+                Between that and practice I spent about a year building Grull — a freelancing platform, then a CGI studio. It ran its course and I moved on.
               </p>
               <p className="reveal" style={{ marginBottom: '24px' }} data-stagger-delay="0.3">
-                From mid-2024 I worked as an architect on built projects — interiors, furniture, a couple of residential buildings. Since the end of 2025 I've been working as a computational designer at a facade practice in Gurugram.
+                From mid-2024 I worked as an architect on built projects at Logic Design+Build — interiors, custom furniture, a few commercial fit-outs, site delivery. Since the end of 2025 I've been working as a computational designer at a facade practice in Gurugram, scripting parametric systems across a high volume of projects.
               </p>
               <p
                 className="reveal"
@@ -844,7 +844,7 @@ const Home = () => {
                 }}
                 data-stagger-delay="0.45"
               >
-                Outside of work I read widely — philosophy, evolutionary psychology. Watch movies and play sports every now and then.
+                Outside of work I read — philosophy, psychology, a bit of history. I watch a lot of films.
               </p>
             </div>
           </div>
@@ -1186,7 +1186,7 @@ const Home = () => {
           hello@ajay.design
         </a>
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12"
           style={{ borderTop: '0.5px solid rgba(255, 255, 255, 0.08)' }}
         >
           <div className="reveal" data-stagger-delay="0.2">
@@ -1211,32 +1211,6 @@ const Home = () => {
               }}
             >
               New Delhi, India
-            </p>
-          </div>
-          <div className="reveal" data-stagger-delay="0.3">
-            <p
-              style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '10px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.16em',
-                color: '#E8E5DE',
-                opacity: 0.4,
-                marginBottom: '12px'
-              }}
-            >
-              Open To
-            </p>
-            <p
-              style={{
-                fontFamily: "'Instrument Serif', serif",
-                fontSize: '15px',
-                color: '#E8E5DE',
-                lineHeight: 1.6
-              }}
-            >
-              Netherlands · Germany · UAE<br />
-              Full-time · from mid-2027
             </p>
           </div>
           <div className="reveal" data-stagger-delay="0.4">

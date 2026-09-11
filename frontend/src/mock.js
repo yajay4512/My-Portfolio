@@ -9,7 +9,7 @@ export const projects = [
     practice: 'Logic Design + Build',
     description: 'A rocking chair designed as one continuous curve, flowing seamlessly from base to seat to backrest without interruption. Crafted from 18mm birch plywood, the design features parallel slats that follow the chair elegant arc, creating both visual interest and comfortable support. A brass rod provides structural reinforcement while adding a refined detail to the natural wood. The single-line construction creates a sculptural presence that works well in modern interiors, offering a gentle rocking motion within a compact, distinctive form. The open slatted design keeps the piece visually light while maintaining durability and strength.',
     tools: 'Rhinoceros 3D · Grasshopper · GHPython · V-Ray',
-    location: 'Delhi',
+    location: 'Gurugram',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778848115/Line_hero_k4ghx4.jpg',
     selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778848115/Line_slected_works_pemokg.jpg',
     images: [
@@ -29,7 +29,7 @@ export const projects = [
     practice: 'Logic Design + Build',
     description: 'A relaxed lounger built on a sleek cantilever frame of brushed stainless steel. The design features generously padded leather cushions with button tufting across the seat, backrest, and integrated headrest for full-body comfort. A durable canvas backing provides support while maintaining a clean profile. The sled-base frame lifts the seat off the ground, creating a floating effect and allowing for gentle reclining movement. The combination of industrial metal framework and soft leather upholstery makes this lounger suitable for both residential and commercial spaces where comfort and visual impact matter equally.',
     tools: 'Rhinoceros 3D · AutoCAD · Photoshop',
-    location: 'Delhi',
+    location: 'Gurugram',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1778404642/O1_e81nnh.png',
     images: [
       'https://res.cloudinary.com/diqanluvu/image/upload/v1778402572/AD30E4E8-CB6F-4686-9323-4417D6F75212_mmdni3.jpg',
@@ -63,9 +63,9 @@ export const projects = [
     type: 'Interior · Built',
     year: '2024',
     practice: 'Logic Design + Build',
-    description: 'A 1200 sq.ft apartment interior in South Delhi. The design emphasizes material honesty and spatial continuity. Custom joinery and built-in storage throughout.',
+    description: 'A 280-square-metre workplace shared between Logic Design + Build and e-commerce startup Dring, carved out of a low-rise office building that had originally been divided into small, disconnected rooms. The brief was never to build two small offices, but one shared workplace where every function was properly resolved. The renovation stripped back existing partitions to reconnect the plan with a large terrace and courtyards on either side, bringing daylight and air deeper into the interior. Brick-framed arches replace the original openings throughout, organising movement and framing views while functioning as invisible partitions between zones — with priority given to natural light in the areas where people spend the longest hours.',
     tools: 'Revit · Lumion · Photoshop · InDesign',
-    location: 'New Delhi',
+    location: 'Gurugram',
     heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1779365050/Mortar_Hero_hyc4nb.jpg',
     selectedWorkImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1781990531/Mortar_house_cover_01_g4sjxq.jpg',
     images: ['https://res.cloudinary.com/diqanluvu/image/upload/v1781991042/Mortar_house_grid_1_ulwjk8.jpg', 'https://res.cloudinary.com/diqanluvu/image/upload/v1782243166/Mortar_house_grid_2_xdtg0q.jpg', 'https://res.cloudinary.com/diqanluvu/image/upload/v1782243164/Mortar_house_grid_3_jqanjv.jpg', 'https://res.cloudinary.com/diqanluvu/image/upload/v1782243165/Mortar_house_grid_4_powljq.jpg'],
@@ -104,7 +104,7 @@ export const projects = [
   {
     id: 7,
     number: '07',
-    name: 'The Edge',
+    name: 'Genius Communitatis',
     type: 'Architecture · Housing',
     year: '2024',
     practice: 'Logic Design + Build',
