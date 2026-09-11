@@ -125,20 +125,6 @@ const Home = () => {
   const previewImageRef = useRef(null);
   const rafIdRef = useRef(null);
 
-  // About section - photo column height should match facts column (B), not bio column (A)
-  const factsColumnRef = useRef(null);
-  const [photoHeight, setPhotoHeight] = useState(null);
-
-  useEffect(() => {
-    if (!factsColumnRef.current) return;
-    const el = factsColumnRef.current;
-    const updateHeight = () => setPhotoHeight(el.offsetHeight);
-    updateHeight();
-    const resizeObserver = new ResizeObserver(updateHeight);
-    resizeObserver.observe(el);
-    return () => resizeObserver.disconnect();
-  }, []);
-
   useEffect(() => {
     // Setup Intersection Observer for scroll reveals
     observerRef.current = new IntersectionObserver(
@@ -985,10 +971,10 @@ const Home = () => {
             display: 'grid',
             gridTemplateColumns: '1.6fr 1.1fr 1fr',
             columnGap: '64px',
-            alignItems: 'stretch'
+            alignItems: 'flex-start'
           }}
         >
-          <div style={{ height: '100%' }}>
+          <div>
             <div
               style={{
                 fontFamily: "'Instrument Serif', serif",
@@ -1021,7 +1007,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div ref={factsColumnRef} style={{ height: '100%' }}>
+          <div>
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <p
                 style={{
@@ -1087,36 +1073,6 @@ const Home = () => {
                   marginBottom: '12px'
                 }}
               >
-                Tools
-              </p>
-              <div class="about-info-text" style={{ fontFamily: "'Instrument Serif', serif", fontSize: '14px', color: '#E8E5DE', lineHeight: 1.8 }}>
-                <p style={{ marginBottom: '12px', opacity: 0.7 }}>
-                  <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Computational:</span><br />
-                  Rhinoceros 3D · Grasshopper · GHPython<br />
-                  Lunchbox · Kangaroo · Weaverbird
-                </p>
-                <p style={{ marginBottom: '12px', opacity: 0.7 }}>
-                  <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Fabrication:</span><br />
-                  BSolid CNC · V-Ray · Revit · Lumion
-                </p>
-                <p style={{ opacity: 0.7 }}>
-                  <span style={{ fontStyle: 'italic', opacity: 0.5, fontSize: '12px' }}>Visual:</span><br />
-                  Photoshop · InDesign · Premiere Pro
-                </p>
-              </div>
-            </div>
-            <div className="reveal" style={{ marginBottom: '40px' }} data-stagger-delay="0.3">
-              <p
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: '10px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.16em',
-                  color: '#E8E5DE',
-                  opacity: 0.4,
-                  marginBottom: '12px'
-                }}
-              >
                 Elsewhere
               </p>
               <p
@@ -1135,7 +1091,7 @@ const Home = () => {
           <div
             className="reveal"
             style={{
-              height: photoHeight ? `${photoHeight}px` : 'auto',
+              height: 'clamp(420px, 45vw, 600px)',
               marginLeft: '-40px'
             }}
           >
