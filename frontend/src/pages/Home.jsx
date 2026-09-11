@@ -791,7 +791,180 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 08 - ABOUT */}
+      {/* SECTION 08 - CONTENT/VIDEOS */}
+      <section className="px-8 md:px-16 py-24 md:py-32">
+        <p
+          className="reveal section-label-reveal"
+          style={{
+            fontFamily: 'Arial, sans-serif',
+            fontSize: '10px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.18em',
+            color: '#E8E5DE',
+            opacity: 0.4,
+            marginBottom: '24px'
+          }}
+        >
+          Writing & Video
+        </p>
+        <p
+          className="reveal"
+          style={{
+            fontFamily: "'Instrument Serif', serif",
+            fontSize: '16px',
+            fontStyle: 'italic',
+            color: '#E8E5DE',
+            opacity: 0.45,
+            marginBottom: '48px'
+          }}
+          data-stagger-delay="0.1"
+        >
+          Architecture, ideas, and the spaces between things.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
+          {contentPieces.map((piece, index) => {
+            const isImageUrl = piece.thumbnail && (piece.thumbnail.startsWith('http://') || piece.thumbnail.startsWith('https://'));
+            
+            return (
+              <a
+                key={piece.id}
+                href={piece.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reveal cursor-hover block group"
+                data-stagger-delay={index * 0.1}
+                style={{ textDecoration: 'none' }}
+              >
+                <div
+                  style={{
+                    position: 'relative',
+                    aspectRatio: '16/9',
+                    background: '#1A1A1A',
+                    overflow: 'hidden',
+                    marginBottom: '12px'
+                  }}
+                >
+                  {isImageUrl ? (
+                    <img
+                      src={piece.thumbnail}
+                      alt={piece.title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontFamily: 'Arial, sans-serif',
+                        fontSize: '13px',
+                        color: '#E8E5DE',
+                        opacity: 0.3,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.14em'
+                      }}
+                    >
+                      {piece.platform}
+                    </div>
+                  )}
+                  <div
+                    className="transition-opacity duration-200"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'rgba(0, 0, 0, 0.25)',
+                      opacity: 0,
+                      pointerEvents: 'none'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+                    onMouseLeave={(e) => e.currentTarget.style.opacity = '0'}
+                  />
+                </div>
+                <div style={{ paddingTop: '12px' }}>
+                  <p
+                    style={{
+                      fontFamily: 'Arial, sans-serif',
+                      fontSize: '10px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.16em',
+                      color: '#E8E5DE',
+                      opacity: 0.35,
+                      marginBottom: '8px'
+                    }}
+                  >
+                    {piece.platform}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "'Instrument Serif', serif",
+                      fontSize: '16px',
+                      color: '#E8E5DE',
+                      opacity: 0.85,
+                      lineHeight: 1.4
+                    }}
+                  >
+                    {piece.title}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+        <div
+          className="reveal"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '48px',
+            marginTop: '40px'
+          }}
+          data-stagger-delay="0.4"
+        >
+          <a
+            href="https://www.instagram.com/Yajay9169"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity duration-200 hover:opacity-70"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.14em',
+              color: '#E8E5DE',
+              opacity: 0.3,
+              textDecoration: 'none'
+            }}
+          >
+            More on Instagram ↗
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ajay-yadav-31b335175/?skipRedirect=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity duration-200 hover:opacity-70"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.14em',
+              color: '#E8E5DE',
+              opacity: 0.3,
+              textDecoration: 'none'
+            }}
+          >
+            More on LinkedIn ↗
+          </a>
+        </div>
+      </section>
+
+      {/* SECTION 09 - ABOUT */}
       <section id="about" className="px-8 md:px-16 py-24 md:py-32">
         <p
           className="reveal section-label-reveal"
@@ -981,178 +1154,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 09 - CONTENT/VIDEOS */}
-      <section className="px-8 md:px-16 py-24 md:py-32">
-        <p
-          className="reveal section-label-reveal"
-          style={{
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '10px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.18em',
-            color: '#E8E5DE',
-            opacity: 0.4,
-            marginBottom: '24px'
-          }}
-        >
-          Writing & Video
-        </p>
-        <p
-          className="reveal"
-          style={{
-            fontFamily: "'Instrument Serif', serif",
-            fontSize: '16px',
-            fontStyle: 'italic',
-            color: '#E8E5DE',
-            opacity: 0.45,
-            marginBottom: '48px'
-          }}
-          data-stagger-delay="0.1"
-        >
-          Architecture, ideas, and the spaces between things.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
-          {contentPieces.map((piece, index) => {
-            const isImageUrl = piece.thumbnail && (piece.thumbnail.startsWith('http://') || piece.thumbnail.startsWith('https://'));
-            
-            return (
-              <a
-                key={piece.id}
-                href={piece.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="reveal cursor-hover block group"
-                data-stagger-delay={index * 0.1}
-                style={{ textDecoration: 'none' }}
-              >
-                <div
-                  style={{
-                    position: 'relative',
-                    aspectRatio: '16/9',
-                    background: '#1A1A1A',
-                    overflow: 'hidden',
-                    marginBottom: '12px'
-                  }}
-                >
-                  {isImageUrl ? (
-                    <img
-                      src={piece.thumbnail}
-                      alt={piece.title}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        display: 'block'
-                      }}
-                    />
-                  ) : (
-                    <div
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontFamily: 'Arial, sans-serif',
-                        fontSize: '13px',
-                        color: '#E8E5DE',
-                        opacity: 0.3,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.14em'
-                      }}
-                    >
-                      {piece.platform}
-                    </div>
-                  )}
-                  <div
-                    className="transition-opacity duration-200"
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: 'rgba(0, 0, 0, 0.25)',
-                      opacity: 0,
-                      pointerEvents: 'none'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                    onMouseLeave={(e) => e.currentTarget.style.opacity = '0'}
-                  />
-                </div>
-                <div style={{ paddingTop: '12px' }}>
-                  <p
-                    style={{
-                      fontFamily: 'Arial, sans-serif',
-                      fontSize: '10px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.16em',
-                      color: '#E8E5DE',
-                      opacity: 0.35,
-                      marginBottom: '8px'
-                    }}
-                  >
-                    {piece.platform}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "'Instrument Serif', serif",
-                      fontSize: '16px',
-                      color: '#E8E5DE',
-                      opacity: 0.85,
-                      lineHeight: 1.4
-                    }}
-                  >
-                    {piece.title}
-                  </p>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-        <div
-          className="reveal"
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '48px',
-            marginTop: '40px'
-          }}
-          data-stagger-delay="0.4"
-        >
-          <a
-            href="https://www.instagram.com/Yajay9169"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity duration-200 hover:opacity-70"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: '11px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.14em',
-              color: '#E8E5DE',
-              opacity: 0.3,
-              textDecoration: 'none'
-            }}
-          >
-            More on Instagram ↗
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ajay-yadav-31b335175/?skipRedirect=true"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity duration-200 hover:opacity-70"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: '11px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.14em',
-              color: '#E8E5DE',
-              opacity: 0.3,
-              textDecoration: 'none'
-            }}
-          >
-            More on LinkedIn ↗
-          </a>
-        </div>
-      </section>
 
       {/* SECTION 10 - CONTACT */}
       <section id="contact" className="px-8 md:px-16 py-24 md:py-32">
