@@ -82,8 +82,13 @@ export const projects = [
     description: 'An entryway piece built from layered 18mm birch plywood, using the same continuous curve philosophy as the rocking chair. The unit features stacked horizontal layers that create a flowing, sculptural form while providing practical storage. Two drawers are integrated seamlessly into the wavy structure, their fronts following the piece rhythmic contours. A coat hanger extends from the side, maintaining the design organic flow. The exposed plywood edges reveal the construction method, turning the layered material into a visual feature. This welcome unit combines function with form, offering storage and hanging space while making a statement in the entry area.',
     tools: 'Rhinoceros 3D · Grasshopper · Lunchbox · BSolid CNC',
     location: 'Gurgaon',
-    heroImage: 'unit1-hero.jpg',
-    images: ['unit1-01.jpg', 'unit1-02.jpg', 'unit1-03.jpg']
+    heroImage: 'https://res.cloudinary.com/diqanluvu/image/upload/v1790101907/unit_1_hero_mis37m.jpg',
+    images: [
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1790101910/unit_1_1_ilswzb.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1790101910/unit_1_4_wuy7kd.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1790101910/unit_1_2_sgeswu.jpg',
+      'https://res.cloudinary.com/diqanluvu/image/upload/v1790101908/unit_1_3_oshnmb.jpg'
+    ]
   },
   {
     id: 6,
