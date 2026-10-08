@@ -35,7 +35,7 @@ const Footer = () => {
           opacity: 0.3
         }}
       >
-        ajay.design
+        ajayyadav.work
       </p>
     </footer>
   );

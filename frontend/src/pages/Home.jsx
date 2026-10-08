@@ -1129,7 +1129,7 @@ const Home = () => {
           Get in Touch
         </p>
         <a
-          href="mailto:hello@ajay.design"
+          href="mailto:hello@ajayyadav.work"
           className="block transition-opacity duration-200 hover:opacity-70 mb-16 cursor-hover contact-email-reveal reveal"
           style={{
             fontFamily: "'Instrument Serif', serif",
@@ -1140,7 +1140,7 @@ const Home = () => {
           }}
           data-stagger-delay="0.1"
         >
-          hello@ajay.design
+          hello@ajayyadav.work
         </a>
         <div
           className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12"
