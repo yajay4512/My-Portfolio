@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { projects, studios, videos, contentPieces } from '../mock';
+import { projects, studios, contentPieces } from '../mock';
 import Footer from '../components/Footer';
 
 const optimiseCloudinaryUrl = (url) => {
@@ -1250,7 +1250,7 @@ const Home = () => {
 
       <Footer />
 
-      <style jsx="true">{`
+      <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.5; }

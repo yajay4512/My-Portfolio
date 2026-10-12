@@ -124,7 +124,7 @@ const Navigation = () => {
         </div>
       </div>
 
-      <style jsx="true">{`
+      <style>{`
         .nav-link:hover {
           opacity: 1 !important;
         }
