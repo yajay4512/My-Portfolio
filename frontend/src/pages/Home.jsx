@@ -1083,8 +1083,8 @@ const Home = () => {
                   lineHeight: 1.6
                 }}
               >
-                <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
-                <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a> | <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Request Portfolio</a>
+                <a href="https://www.linkedin.com/in/ajay-yadav-31b335175/" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
+                <a href="/Ajay-Yadav-CV-2026.pdf" download="Ajay-Yadav-CV-2026.pdf" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a> | <a href="mailto:hello@ajayyadav.work?subject=Portfolio%20request&body=Hi%20Ajay%2C%0A%0AI%20came%20across%20your%20website%20and%20would%20like%20to%20see%20your%20full%20portfolio.%0A%0AName%3A%20%0ACompany%20/%20Studio%3A%20%0ARole%3A%20%0AWhat%20I%27m%20interested%20in%20%28e.g.%20facade%20work%2C%20computational%20design%2C%20a%20role%20or%20collaboration%29%3A%20%0A%0AThanks%2C%0A" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Request Portfolio</a>
               </p>
             </div>
           </div>
@@ -1192,8 +1192,8 @@ const Home = () => {
                 lineHeight: 1.6
               }}
             >
-              <a href="#" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
-              <a href="https://collection.cloudinary.com/diqanluvu/bd660be0afd4fc9c977f36b448c23604" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a>
+              <a href="https://www.linkedin.com/in/ajay-yadav-31b335175/" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>LinkedIn</a><br />
+              <a href="/Ajay-Yadav-CV-2026.pdf" download="Ajay-Yadav-CV-2026.pdf" target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-70 cursor-hover" style={{ color: '#E8E5DE', textDecoration: 'none' }}>Download CV</a>
             </p>
           </div>
         </div>
